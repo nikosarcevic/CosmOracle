@@ -61,3 +61,15 @@ def angular_diameter_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-
     Compute the angular diameter distance
     """
     return transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) / (1 + z)
+
+def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                              w0=constants['w0'], wa=constants['wa']):
+    
+    '''
+    Compute the angular diameter distance d_l
+    '''
+    
+    d_l = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) * (1 + z) 
+    
+    return d_l

@@ -58,6 +58,6 @@ def angular_diameter_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-
                               ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
                               w0=constants['w0'], wa=constants['wa']):
     """
-    Computer the angular diameter distance
+    Compute the angular diameter distance
     """
     return transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) / (1 + z)

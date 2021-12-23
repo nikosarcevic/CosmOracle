@@ -30,9 +30,14 @@ def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     Method to compute the comoving distance
     """
     integrand = lambda x: 1/E_z(x, ΩM, ΩDE, ΩR, w0, wa)
-    int, err = integrate.quad(integrand, 0, z)
+    if isinstance(z, float):
+        result, _ = integrate.quad(integrand, 0, z)
+    elif isinstance(z, np.ndarray):
+        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    else:
+        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
     c0 = constants['speed-of-light']
-    return c0/H0*int
+    return c0/H0*result
 
 def transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                                  ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
@@ -73,3 +78,91 @@ def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-densit
     d_l = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) * (1 + z) 
     
     return d_l
+    
+def calculate_distance_modulus(d):
+    '''
+    Method to compute the distance modulus for a given distance.
+    
+    Distance modulus nu is defined as the difference between the apparent magnitude m and
+    the absolute magnitude  M of an astronomical object, nu = m - M.
+    
+    The distance modulus is then: nu = m - M = 5 * log10(d/{10 pc})
+    
+    Args: distance d in parsecs
+    
+    Returns: the distance modulus
+    '''
+    mu = 5 * np.log10(d/10)
+    
+    return mu
+
+def calculate_absolute_magnitude_from_distance_modulus(m, d):
+    '''
+    Method to compute the absolute magnitude M from the distance modulus
+    given the apparent magnitude m and distance d (in parsecs).
+    
+    Args: apparent magnitude m and distance d (in parsecs)
+    
+    Returns: the absolute magnitude M
+    '''
+    M = m - 5 * np.log10(d/10)
+    
+    return M
+    
+def calculate_apparent_magnitude_from_distance_modulus(M, d):
+    
+    '''
+    Method to compute the apparent magnitude m from the distance modulus
+    given the absolute magnitude M and distance d (in parsecs).
+    
+    Args: absolute magnitude M and distance d (in parsecs)
+    
+    Returns: the apparent magnitude m
+    '''
+    
+    m = M + 5 * np.log10(d/10)
+    
+    return m
+
+def calculate_distance_from_distance_modulus_for_given_nu(nu):
+    
+    '''
+    Method to compute distance d (in parsecs) from distance modulus nu.
+    
+    Args: distance modulus nu (dimensionless) 
+    
+    Returns: distance in parsecs
+    '''
+    
+    d = 10**((nu/5) + 1)
+    
+    return d
+
+def calculate_distance_from_distance_modulus_for_given_nu(nu):
+    
+    '''
+    Method to compute distance d (in parsecs) from distance modulus nu.
+    
+    Args: distance modulus nu (dimensionless) 
+    
+    Returns: distance in parsecs
+    '''
+    
+    d = 10**((nu/5) + 1)
+    
+    return d
+
+def calculate_distance_from_distance_modulus_for_given_M_and_m(M, m):
+    
+    '''
+    Method to compute the distance d (in parsecs) from distance modulus given
+    the absolute and apparent magnitudes.
+    
+    Args: absolute magnitude M and apparent magnitude m
+    
+    Returns: distance in parsecs
+    '''
+    
+    d = 10**((m-M)/5 + 1)
+    
+    return d

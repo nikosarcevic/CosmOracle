@@ -74,7 +74,7 @@ if z_value:
     st.write('comoving distance is:', round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits), 'Mpc')
     z_array = np.linspace(0, float(z_value), 300)
     
-    fig = plt.figure(figsize=(10,10))
+    fig = plt.figure(figsize=(5,5))
     plt.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
     plt.xlabel("z")
     plt.ylabel("r(z)")

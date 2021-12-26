@@ -83,10 +83,10 @@ def calculate_distance_modulus(d):
     '''
     Method to compute the distance modulus for a given distance.
     
-    Distance modulus nu is defined as the difference between the apparent magnitude m and
-    the absolute magnitude  M of an astronomical object, nu = m - M.
+    Distance modulus mu is defined as the difference between the apparent magnitude m and
+    the absolute magnitude  M of an astronomical object, mu = m - M.
     
-    The distance modulus is then: nu = m - M = 5 * log10(d/{10 pc})
+    The distance modulus is then: mu = m - M = 5 * log10(d/{10 pc})
     
     Args: distance d in parsecs
     
@@ -129,7 +129,7 @@ def calculate_distance_from_distance_modulus_for_given_nu(nu):
     '''
     Method to compute distance d (in parsecs) from distance modulus nu.
     
-    Args: distance modulus nu (dimensionless) 
+    Args: distance modulus mu (dimensionless) 
     
     Returns: distance in parsecs
     '''
@@ -143,7 +143,7 @@ def calculate_distance_from_distance_modulus_for_given_nu(nu):
     '''
     Method to compute distance d (in parsecs) from distance modulus nu.
     
-    Args: distance modulus nu (dimensionless) 
+    Args: distance modulus mu (dimensionless) 
     
     Returns: distance in parsecs
     '''

@@ -77,11 +77,13 @@ if z_value:
     width = st.sidebar.slider("plot width", 1, 25, 1)
     height = st.sidebar.slider("plot height", 1, 25, 1)
    
-    fig = plt.subplots(figsize=(width, height))
+    fig, ax = plt.subplots(figsize=(width, height))
+   
+    #fig = plt.subplots(figsize=(width, height))
     #fig = plt.figure(figsize=(5,5))
-    plt.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
-    plt.xlabel("REDSHIFT")
-    plt.ylabel("COMOVING DISTANCE")
+    ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
+    ax.set_xlabel("REDSHIFT")
+    ax.set_ylabel("COMOVING DISTANCE")
 
     st.pyplot(fig)
 

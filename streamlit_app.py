@@ -75,8 +75,8 @@ if z_value:
     z_array = np.linspace(0,float(z_value), 300)
     fig, ax = plt.subplots()
     ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
-    ax.xlabel(r"$z$")
-    ax.ylabel(r"$r(z)$")
+    ax.set_xlabel(r"$z$")
+    ax.set_ylabel(r"$r(z)$")
     st.pyplot(fig)
 
     

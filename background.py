@@ -30,7 +30,7 @@ def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     Method to compute the comoving distance
     """
     integrand = lambda x: 1/E_z(x, ΩM, ΩDE, ΩR, w0, wa)
-    if isinstance(z, float):
+    if isinstance(z, float) or isinstance(z, int):
         result, _ = integrate.quad(integrand, 0, z)
     elif isinstance(z, np.ndarray):
         result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)

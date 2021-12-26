@@ -5,6 +5,7 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 
+echo "backend: TkAgg" >> ~/.matplotlib/matplotlibrc
 
 
 H0=67

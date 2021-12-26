@@ -76,8 +76,8 @@ if z_value:
     
     fig = plt.figure(figsize=(5,5))
     plt.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
-    plt.xlabel("z")
-    plt.ylabel("r(z)")
+    plt.xlabel("REDSHIFT")
+    plt.ylabel("COMOVING DISTANCE")
 
     st.pyplot(fig)
 

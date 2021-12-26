@@ -29,7 +29,7 @@ st.sidebar.write(" ")
 
 
 
-distance_value = st.sidebar.text_input('Distance') 
+#distance_value = st.sidebar.text_input('Distance') 
 
 z_value = st.sidebar.text_input('Redshift')
 H0_value = st.sidebar.text_input('Hubble', str(H0))
@@ -58,8 +58,8 @@ st.sidebar.warning(
 
 
 
-if distance_value :
-    st.write('The distance modulus is:', round(bg.calculate_distance_modulus(float(distance_value)), sig_digits), '[no units]')
+#if distance_value :
+    #st.write('The distance modulus is:', round(bg.calculate_distance_modulus(float(distance_value)), sig_digits), '[no units]')
     
  
 

@@ -10,9 +10,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='CosmoCompute')
 
-st.text('Hello and welcome to CosmoCompute! Computing distances in cosmology is not straightforward. \n
- If you wish to compute the values of the comobing distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. \n
- CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
+st.text('Hello and welcome to CosmoCompute! Computing distances in cosmology is not straightforward. If you wish to compute the values of the comobing distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
 
 logo, name = st.sidebar.columns(2)
 #with logo:

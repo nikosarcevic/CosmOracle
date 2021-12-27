@@ -28,12 +28,6 @@ with name:
 
 st.sidebar.write(" ")
 
-
-
-
-
-#distance_value = st.sidebar.text_input('Distance') 
-
 z_value = st.sidebar.text_input('Redshift')
 H0_value = st.sidebar.text_input('Hubble', str(H0))
 ΩM_value = st.sidebar.text_input('Matter Density', str(ΩM))
@@ -43,9 +37,6 @@ w0_value = st.sidebar.text_input('w0', str(w0))
 wa_value = st.sidebar.text_input('wa', str(wa))
 
 sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
-
-  
-
 
 # Write About
 st.sidebar.header("About")
@@ -57,15 +48,6 @@ st.sidebar.warning(
                 repo, share it and feel free to open an issue if you find a bug 
                 or if you want some additional features.
                 """)
-
-
-
-
-#if distance_value :
-    #st.write('The distance modulus is:', round(bg.calculate_distance_modulus(float(distance_value)), sig_digits), '[no units]')
-    
-
-
 
 
 if z_value:

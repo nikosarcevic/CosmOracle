@@ -68,17 +68,17 @@ if z_value:
    
         if plot_rz:
             ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), 
-                    label='D_C')
+                    label='Comoving Distance')
         if plot_DLz:
             ax.plot(z_array, bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='D_L')
+                   label='Luminosity Distance')
         if plot_DAz:
             ax.plot(z_array, bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='D_A')
+                   label='Angular Diameter Distance')
         
 
         ax.set_xlabel("REDSHIFT")
-        ax.set_ylabel("COMOVING DISTANCE")
+        ax.set_ylabel("MPC")
         ax.legend()
 
         st.pyplot(fig)

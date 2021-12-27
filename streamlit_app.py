@@ -26,11 +26,11 @@ with name:
 
 st.sidebar.write(" ")
 
-z_value = st.sidebar.text_input('Redshift')
-H0_value = st.sidebar.text_input('Hubble', str(H0))
-ΩM_value = st.sidebar.text_input('Matter Density', str(ΩM))
-ΩDE_value = st.sidebar.text_input('Dark Energy Density', str(ΩDE))
-ΩR_value = st.sidebar.text_input('Radiation Density', str(ΩR))
+z_value = st.sidebar.text_input('Redshift z')
+H0_value = st.sidebar.text_input('Hubble Constant *H0*', str(H0))
+ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
+ΩDE_value = st.sidebar.text_input('Dark Energy Density ΩΛ', str(ΩDE))
+ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
 w0_value = st.sidebar.text_input('w0', str(w0))
 wa_value = st.sidebar.text_input('wa', str(wa))
 
@@ -61,7 +61,7 @@ if z_value:
 
     if plot_rz or plot_DLz or plot_DAz:
         
-        width = st.slider("plot width", 1, 25, 10)
+        width = st.write("plot width", 10)
         height = st.slider("plot height", 1, 25, 10)
         
         fig, ax = plt.subplots(figsize=(width, height))

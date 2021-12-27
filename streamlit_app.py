@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title='CosmoCompute')
 
 st.markdown('Hello and welcome to CosmoCompute!')
+st.markdown(' ')
             
 st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
 st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')

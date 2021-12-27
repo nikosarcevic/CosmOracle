@@ -14,7 +14,7 @@ w0=-1.
 wa=0
 speed_of_light=2.99792458e5
 
-st.set_page_config(page_title='CosmoCalc')
+st.set_page_config(page_title='CosmoCompute')
 
 logo, name = st.sidebar.columns(2)
 #with logo:

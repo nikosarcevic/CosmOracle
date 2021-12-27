@@ -61,8 +61,8 @@ if z_value:
 
     if plot_rz or plot_DLz or plot_DAz:
         
-        width = st.write("plot width", 10)
-        height = st.slider("plot height", 1, 25, 10)
+        width = st.text_input("plot width", str(10))
+        height = st.text_input("plot height", str(10))
         
         fig, ax = plt.subplots(figsize=(width, height))
    

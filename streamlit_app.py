@@ -96,6 +96,6 @@ if z_value:
         ax.set_xlabel("REDSHIFT")
         ax.set_ylabel("COMOVING DISTANCE")
 
-    st.pyplot(fig)
+        st.pyplot(fig)
 
     

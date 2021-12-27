@@ -53,8 +53,14 @@ if z_value:
     st.write('Luminosity distance at redshift', z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     st.write('Angular diameter distance at redshift', z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     z_array = np.linspace(0, float(z_value), 300)
+
+    rz_array = bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
+    DLz_array = bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
+    DAz_array = bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
     
-    
+    stacked_array = np.vstack((z_array, rz_array, DLz_array, DAz_array)).T
+    np.savetxt("output.txt", stacked_array, header='z, rz, DLz, DAz')
+
     plot_rz = st.checkbox('Plot Comoving Distance Dc')
     plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
     plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
@@ -67,14 +73,11 @@ if z_value:
         fig, ax = plt.subplots(figsize=(width, height))
    
         if plot_rz:
-            ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), 
-                    label='Comoving Distance')
+            ax.plot(z_array, rz_array, label='Comoving Distance')
         if plot_DLz:
-            ax.plot(z_array, bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='Luminosity Distance')
+            ax.plot(z_array, DLz_array, label='Luminosity Distance')
         if plot_DAz:
-            ax.plot(z_array, bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='Angular Diameter Distance')
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance')
         
 
         ax.set_xlabel("REDSHIFT")

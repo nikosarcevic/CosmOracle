@@ -42,7 +42,7 @@ st.sidebar.warning(
                 """
                 CosmoCalc app is created and maintained by 
                 **Marco Bonici, Niko Sarcevic and Matthijs van der Wild**. If you like this app please star its
-                [**GitHub**](ADD URL HERE)
+                [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
                 repo, share it and feel free to open an issue if you find a bug 
                 or if you want some additional features.
                 """)

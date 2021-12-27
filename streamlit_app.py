@@ -80,16 +80,16 @@ if z_value:
     plot_DLz = st.checkbox('Plot Luminosity Distance')
     plot_DAz = st.checkbox('Plot Angular Diameter Distance')
 
-    if plot_rz or plot_DLz or plot_DAz
+    if plot_rz or plot_DLz or plot_DAz:
         fig, ax = plt.subplots(figsize=(width, height))
     
         #fig = plt.subplots(figsize=(width, height))
         #fig = plt.figure(figsize=(5,5))
-        if plot_rz
+        if plot_rz:
             ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
-        if plot_DLz
+        if plot_DLz:
             ax.plot(z_array, bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
-        if plot_DAz
+        if plot_DAz:
             ax.plot(z_array, bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ))
         
 

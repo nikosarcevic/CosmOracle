@@ -55,9 +55,9 @@ if z_value:
     z_array = np.linspace(0,float(z_value), 300)
     
     
-    plot_rz = st.checkbox('Plot Comoving Distance')
-    plot_DLz = st.checkbox('Plot Luminosity Distance')
-    plot_DAz = st.checkbox('Plot Angular Diameter Distance')
+    plot_rz = st.checkbox('Plot Comoving Distance $D_C$')
+    plot_DLz = st.checkbox('Plot Luminosity Distance $D_L$')
+    plot_DAz = st.checkbox('Plot Angular Diameter Distance $D_A$')
 
     if plot_rz or plot_DLz or plot_DAz:
         
@@ -68,7 +68,7 @@ if z_value:
    
         if plot_rz:
             ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), 
-                    label='r(z)')
+                    label='D_C')
         if plot_DLz:
             ax.plot(z_array, bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
                    label='D_L')

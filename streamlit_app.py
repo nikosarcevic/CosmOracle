@@ -5,9 +5,7 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 
-
-
-
+#Default values
 H0=67
 ΩM=0.32
 ΩR=0
@@ -56,26 +54,27 @@ if z_value:
     st.write('Angular diameter distance at redshift',z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     z_array = np.linspace(0,float(z_value), 300)
     
-    width = st.sidebar.slider("plot width", 1, 25, 1)
-    height = st.sidebar.slider("plot height", 1, 25, 1)
+    
     plot_rz = st.checkbox('Plot Comoving Distance')
     plot_DLz = st.checkbox('Plot Luminosity Distance')
     plot_DAz = st.checkbox('Plot Angular Diameter Distance')
 
     if plot_rz or plot_DLz or plot_DAz:
+        width = st.slider("plot width", 1, 25, 3)
+        height = st.slider("plot height", 1, 25, 3)
         fig, ax = plt.subplots(figsize=(width, height))
     
         #fig = plt.subplots(figsize=(width, height))
         #fig = plt.figure(figsize=(5,5))
         if plot_rz:
             ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), 
-                    label='Comoving distance')
+                    label='r(z)')
         if plot_DLz:
             ax.plot(z_array, bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='Luminosity distance')
+                   label='D_L')
         if plot_DAz:
             ax.plot(z_array, bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ),
-                   label='Angular diameter distance')
+                   label='D_A')
         
 
         ax.set_xlabel("REDSHIFT")

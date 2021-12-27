@@ -82,7 +82,7 @@ if z_value:
         fig, ax = plt.subplots(figsize=(width, height))
    
         if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance')
+            ax.plot(z_array, rz_array, label='Comoving Distance'+st.latex(r''' D_C '''))
         if plot_DLz:
             ax.plot(z_array, DLz_array, label='Luminosity Distance')
         if plot_DAz:

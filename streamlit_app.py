@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='CosmoCompute')
 
+st.title('CosmoCompute')
+
 st.markdown('Hello and welcome to CosmoCompute!')
 st.markdown(' ')
             

@@ -12,8 +12,12 @@ def E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'],
     """
     Method to compute the adimensional Hubble rate in the w0waCDm cosmology
     """
-    if z < 0:
-        raise TypeError("Enter a non-negative redshift.")
+    if isinstance(z, float) or isinstance(z, int):
+        if z < 0:
+            raise TypeError("Enter a non-negative redshift.")
+    elif isinstance(z, np.ndarray):
+        if any(t < 0 for t in z):
+            raise TypeError("Enter a non-negative redshift.")
     ΩK = 1-ΩM-ΩDE-ΩR
     return np.sqrt(ΩM*(1+z)**3+ΩR*(1+z)**4+ΩDE*(1+z)**(3*(1+w0+wa))*np.exp(-3*wa*z/(1+z))+ΩK*(1+z)**2)
 
@@ -23,8 +27,12 @@ def H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     """
     Method to compute the Hubble rate in the w0waCDm cosmology
     """
-    if z < 0:
-        raise TypeError("Enter a non-negative redshift.")
+    if isinstance(z, float) or isinstance(z, int):
+        if z < 0:
+            raise TypeError("Enter a non-negative redshift.")
+    elif isinstance(z, np.ndarray):
+        if any(t < 0 for t in z):
+            raise TypeError("Enter a non-negative redshift.")
     return H0*E_z(z, ΩM, ΩDE, ΩR, w0, wa)
 
 def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
@@ -33,12 +41,14 @@ def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     """
     Method to compute the comoving distance
     """
-    if z < 0:
-        raise TypeError("Enter a non-negative redshift.")
     integrand = lambda x: 1/E_z(x, ΩM, ΩDE, ΩR, w0, wa)
     if isinstance(z, float) or isinstance(z, int):
+        if z < 0:
+            raise TypeError("Enter a non-negative redshift.")
         result, _ = integrate.quad(integrand, 0, z)
     elif isinstance(z, np.ndarray):
+        if any(t < 0 for t in z):
+            raise TypeError("Enter a non-negative redshift.")
         result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
     else:
         raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
@@ -51,8 +61,12 @@ def transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matt
     """
     Compute the transverse comoving distance
     """
-    if z < 0:
-        raise TypeError("Enter a non-negative redshift.")
+    if isinstance(z, float) or isinstance(z, int):
+        if z < 0:
+            raise TypeError("Enter a non-negative redshift.")
+    elif isinstance(z, np.ndarray):
+        if any(t < 0 for t in z):
+            raise TypeError("Enter a non-negative redshift.")
     D_c = comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     ΩK = 1 - ΩM - ΩDE - ΩR
     c0 = constants['speed-of-light']

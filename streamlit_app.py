@@ -49,15 +49,15 @@ st.sidebar.warning(
 
 
 if z_value:
-    st.write('Comoving distance at redshift',z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    st.write('Luminosity distance at redshift',z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    st.write('Angular diameter distance at redshift',z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    z_array = np.linspace(0,float(z_value), 300)
+    st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    st.write('Luminosity distance at redshift', z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    st.write('Angular diameter distance at redshift', z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    z_array = np.linspace(0, float(z_value), 300)
     
     
-    plot_rz = st.checkbox('Plot Comoving Distance $D_C$')
-    plot_DLz = st.checkbox('Plot Luminosity Distance $D_L$')
-    plot_DAz = st.checkbox('Plot Angular Diameter Distance $D_A$')
+    plot_rz = st.checkbox('Plot Comoving Distance r$D_C$')
+    plot_DLz = st.checkbox('Plot Luminosity Distance r$D_L$')
+    plot_DAz = st.checkbox('Plot Angular Diameter Distance r$D_A$')
 
     if plot_rz or plot_DLz or plot_DAz:
         
@@ -83,6 +83,4 @@ if z_value:
 
         st.pyplot(fig)
         
-        
-
-    
+ 

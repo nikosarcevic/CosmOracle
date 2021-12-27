@@ -12,8 +12,7 @@ class ComovingDistanceTest(unittest.TestCase):
         self.assertAlmostEqual(result, 3411.733, delta=0.1)
     def test_redshift_negative(self):
         data = -1.
-        result = bg.comoving_distance(data)
-        self.assertEqual(result, "Booh, no negative redshifts!")
+        self.assertRaises(TypeError, bg.comoving_distance, data)
     #def test_redshift_string(self):
     #    data = "1."
     #    results = bg.comoving_distance(data)

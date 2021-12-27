@@ -12,5 +12,4 @@ class Transverse_CDistance(unittest.TestCase):
         self.assertAlmostEqual(result, 3411.733, delta=0.1)
     def test_cdistance_negative(self):
         data = -1.
-        result = bg.transverse_comoving_distance(data)
-        self.assertEqual(result, "Booh, no negative redshifts!")
+        self.assertRaises(TypeError, bg.transverse_comoving_distance, data)

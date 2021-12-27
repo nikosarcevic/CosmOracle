@@ -69,6 +69,8 @@ if z_value:
     
     stacked_array = np.vstack((z_array, rz_array, DLz_array, DAz_array)).T
     np.savetxt("output.txt", stacked_array, header='z, rz, DLz, DAz')
+    
+    st.write(" ")
 
     plot_rz = st.checkbox('Plot Comoving Distance Dc')
     plot_DLz = st.checkbox('Plot Luminosity Distance Dl')

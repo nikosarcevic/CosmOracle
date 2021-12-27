@@ -61,10 +61,11 @@ if z_value:
 
     if plot_rz or plot_DLz or plot_DAz:
         
+        width = st.slider("plot width", 1, 25, 10)
+        height = st.slider("plot height", 1, 25, 10)
+        
         fig, ax = plt.subplots(figsize=(width, height))
-    
-        #fig = plt.subplots(figsize=(width, height))
-        #fig = plt.figure(figsize=(5,5))
+   
         if plot_rz:
             ax.plot(z_array, bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), 
                     label='r(z)')
@@ -82,7 +83,6 @@ if z_value:
 
         st.pyplot(fig)
         
-        width = st.slider("plot width", 1, 25, 10)
-        height = st.slider("plot height", 1, 25, 10)
+        
 
     

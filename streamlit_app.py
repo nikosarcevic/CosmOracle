@@ -6,7 +6,7 @@ import background as bg
 import matplotlib.pyplot as plt
 
 
-import plotly.figure_factory as ff
+#import plotly.figure_factory as ff
 
 
 

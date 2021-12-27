@@ -4,7 +4,4 @@ pyyaml >= 5.3.0
 matplotlib >= 3.5.1; python_version >= "3.7"
 matplotlib >= 3.3.4; python_version == "3.6"
 matplotlib >= 3.2.2
-streamlit==0.79.0
-numpy==1.19.2
-plotly==4.14.3
-scipy==1.5.2
+

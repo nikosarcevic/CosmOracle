@@ -1,3 +1,12 @@
+"""
+CosmoComputeApp
+Created December 2021
+@authors: 
+[Marco Bonici](https://github.com/marcobonici), 
+[Niko Sarcevic](https://github.com/nikosarcevic) and 
+[Matthijs van der Wild](https://github.com/lonbar)
+"""
+
 # %%
 import numpy as np
 import streamlit as st

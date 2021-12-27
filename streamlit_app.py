@@ -100,7 +100,7 @@ if z_value:
         
 # About
 st.sidebar.header("About")
-st.sidebar.warning(
+st.sidebar.info(
                 """
                 CosmoCompute app is created and maintained by 
                 [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its

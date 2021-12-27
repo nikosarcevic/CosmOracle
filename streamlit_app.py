@@ -6,14 +6,7 @@ import background as bg
 import matplotlib.pyplot as plt
 
 
-#Default values
-H0=67
-ΩM=0.32
-ΩR=0
-ΩDE=0.68
-w0=-1.
-wa=0
-speed_of_light=2.99792458e5
+
 
 st.set_page_config(page_title='CosmoCompute')
 
@@ -27,17 +20,8 @@ with name:
     st.markdown("<h1 style='text-align: left; color: orange;'> \
                 Cosmo \n Compute </h1>", unsafe_allow_html=True)
 
-st.sidebar.write(" ")
+st.sidebar.write(" what is this")
 
-z_value = st.sidebar.text_input('Redshift z')
-H0_value = st.sidebar.text_input('Hubble Constant H0', str(H0))
-ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
-ΩDE_value = st.sidebar.text_input('Dark Energy Density ΩΛ', str(ΩDE))
-ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
-w0_value = st.sidebar.text_input('w0', str(w0))
-wa_value = st.sidebar.text_input('wa', str(wa))
-
-sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 
 # Write About
 st.sidebar.header("About")
@@ -49,6 +33,26 @@ st.sidebar.warning(
                 repo, share it and feel free to open an issue if you find a bug 
                 or if you want some additional features.
                 """)
+
+#Default values
+H0=67
+ΩM=0.32
+ΩR=0
+ΩDE=0.68
+w0=-1.
+wa=0
+speed_of_light=2.99792458e5
+
+z_value = st.sidebar.text_input('Redshift z')
+H0_value = st.sidebar.text_input('Hubble Constant H0', str(H0))
+ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
+ΩDE_value = st.sidebar.text_input('Dark Energy Density ΩΛ', str(ΩDE))
+ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
+w0_value = st.sidebar.text_input('w0', str(w0))
+wa_value = st.sidebar.text_input('wa', str(wa))
+
+sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
+
 
 
 if z_value:

@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 # Page settings
 
-st.set_page_config(page_title='CosmoCompute')
+st.set_page_config(page_title='CosmΩracle')
 
 #Sidebar settings
 
@@ -51,7 +51,7 @@ wa_value = st.sidebar.text_input('wa', str(wa))
 sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 
 if not z_value:
-    st.title('CosmΩoracle')
+    st.title('CosmΩracle')
     st.markdown('Hello and welcome to CosmΩracle!')
     st.markdown(' ')
     st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')

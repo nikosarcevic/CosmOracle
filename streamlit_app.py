@@ -26,7 +26,7 @@ logo, name = st.sidebar.columns(2)
     #st.image(image, use_column_width=True)
 with name:
     st.markdown("<h1 style='text-align: left; color: orange;'> \
-                Cosmo \n Compute </h1>", unsafe_allow_html=True)
+                CosmOracle </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
 
@@ -103,7 +103,7 @@ if z_value:
 st.sidebar.header("About")
 st.sidebar.info(
                 """
-                CosmoCompute app is created and maintained by 
+                CosmOracle app is created and maintained by 
                 [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
                 [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
                 repo, share it and feel free to open an issue if you find a bug 

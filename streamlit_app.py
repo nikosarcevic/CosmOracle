@@ -30,7 +30,6 @@ with name:
 
 st.sidebar.write(" ")
 
-
 #Default values
 H0=67
 ΩM=0.32
@@ -75,6 +74,8 @@ if z_value:
     plot_rz = st.checkbox('Plot Comoving Distance Dc')
     plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
     plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
+    
+    st.write(" ")
 
     if plot_rz or plot_DLz or plot_DAz:
         
@@ -96,9 +97,11 @@ if z_value:
         ax.legend()
 
         st.pyplot(fig)
+        
+    st.write(" ")
 
     f = open("output.txt", encoding = 'utf-8')
-    file_name = st.text_input('Filename', "filename.txt")
+    file_name = st.text_input('Name your file', "filename.txt")
     st.download_button('Download text file', f, file_name = file_name)
         
 # About

@@ -26,7 +26,7 @@ logo, name = st.sidebar.columns(2)
     #st.image(image, use_column_width=True)
 with name:
     st.markdown("<h1 style='text-align: left; color: orange;'> \
-                CosmOracle </h1>", unsafe_allow_html=True)
+                CosmΩracle </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
 
@@ -51,11 +51,11 @@ wa_value = st.sidebar.text_input('wa', str(wa))
 sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 
 if not z_value:
-    st.title('CosmoCompute')
-    st.markdown('Hello and welcome to CosmoCompute!')
+    st.title('CosmΩoracle')
+    st.markdown('Hello and welcome to CosmΩracle!')
     st.markdown(' ')
     st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
-    st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
+    st.markdown('CosmΩracle will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
 
 if z_value:
     st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
@@ -103,7 +103,7 @@ if z_value:
 st.sidebar.header("About")
 st.sidebar.info(
                 """
-                CosmOracle app is created and maintained by 
+                CosmΩracle app is created and maintained by 
                 [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
                 [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
                 repo, share it and feel free to open an issue if you find a bug 

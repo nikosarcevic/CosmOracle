@@ -1,5 +1,5 @@
 """
-CosmoComputeApp
+CosmOracleApp
 Created December 2021
 @authors: 
 [Marco Bonici](https://github.com/marcobonici), 

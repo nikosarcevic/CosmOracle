@@ -17,6 +17,8 @@ speed_of_light=2.99792458e5
 
 st.set_page_config(page_title='CosmoCompute')
 
+st.text('some text here aaaaaa')
+
 logo, name = st.sidebar.columns(2)
 #with logo:
     #image = 'https://raw.githubusercontent.com/rdzudzar/DistributionAnalyser/main/images/logo_da.png?token=AIAWV2ZRCFKYM42DVFTD3OLAN3CQK'

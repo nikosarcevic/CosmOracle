@@ -10,28 +10,8 @@ import matplotlib.pyplot as plt
 
 
 
-# This code is different for each deployed app.
-CURRENT_THEME = "blue"
-IS_DARK_THEME = True
-EXPANDER_TEXT = """
-    This is a custom theme. You can enable it by copying the following code
-    to `.streamlit/config.toml`:
-    ```python
-    [theme]
-    primaryColor = "#E694FF"
-    backgroundColor = "#00172B"
-    secondaryBackgroundColor = "#0083B8"
-    textColor = "#C6CDD4"
-    font = "sans-serif"
-    ```
-    """
 
 
-# This code is the same for each deployed app.
-st.image(
-    "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/artist-palette_1f3a8.png",
-    width=100,
-)
 
 """
 # Try out Theming!

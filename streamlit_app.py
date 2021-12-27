@@ -87,7 +87,7 @@ if z_value:
         st.pyplot(fig)
 
     f = open("output.txt", encoding = 'utf-8')
-    file_name = st.sidebar.text_input('Filename', "filename.txt")
+    file_name = st.text_input('Filename', "filename.txt")
     st.download_button('Download text file', f, file_name = file_name)
         
         

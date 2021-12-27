@@ -14,7 +14,7 @@ w0=-1.
 wa=0
 speed_of_light=2.99792458e5
 
-st.set_page_config(page_title='CosmoCalc')
+st.set_page_config(page_title='CosmoCompute')
 
 logo, name = st.sidebar.columns(2)
 #with logo:
@@ -22,15 +22,15 @@ logo, name = st.sidebar.columns(2)
     #st.image(image, use_column_width=True)
 with name:
     st.markdown("<h1 style='text-align: left; color: orange;'> \
-                CosmoCalc </h1>", unsafe_allow_html=True)
+                Cosmo \n Compute </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
 
-z_value = st.sidebar.text_input('Redshift')
-H0_value = st.sidebar.text_input('Hubble', str(H0))
-ΩM_value = st.sidebar.text_input('Matter Density', str(ΩM))
-ΩDE_value = st.sidebar.text_input('Dark Energy Density', str(ΩDE))
-ΩR_value = st.sidebar.text_input('Radiation Density', str(ΩR))
+z_value = st.sidebar.text_input('Redshift z')
+H0_value = st.sidebar.text_input('Hubble Constant H0', str(H0))
+ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
+ΩDE_value = st.sidebar.text_input('Dark Energy Density ΩΛ', str(ΩDE))
+ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
 w0_value = st.sidebar.text_input('w0', str(w0))
 wa_value = st.sidebar.text_input('wa', str(wa))
 
@@ -40,27 +40,29 @@ sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 st.sidebar.header("About")
 st.sidebar.warning(
                 """
-                CosmoCalc app is created and maintained by 
-                **Marco Bonici, Niko Sarcevic and Matthijs van der Wild**. If you like this app please star its
-                [**GitHub**](ADD URL HERE)
+                CosmoCompute app is created and maintained by 
+                [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
+                [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
                 repo, share it and feel free to open an issue if you find a bug 
                 or if you want some additional features.
                 """)
 
 
 if z_value:
-    st.write('Comoving distance at redshift',z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    st.write('Luminosity distance at redshift',z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    st.write('Angular diameter distance at redshift',z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
-    z_array = np.linspace(0,float(z_value), 300)
+    st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    st.write('Luminosity distance at redshift', z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    st.write('Angular diameter distance at redshift', z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    z_array = np.linspace(0, float(z_value), 300)
     
     
-    plot_rz = st.checkbox('Plot Comoving Distance $D_C$')
-    plot_DLz = st.checkbox('Plot Luminosity Distance $D_L$')
-    plot_DAz = st.checkbox('Plot Angular Diameter Distance $D_A$')
+    plot_rz = st.checkbox('Plot Comoving Distance Dc')
+    plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
+    plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
 
     if plot_rz or plot_DLz or plot_DAz:
         
+        width = st.slider("plot width", 1, 25, 10)
+        height = st.slider("plot height", 1, 25, 5)
         
         fig, ax = plt.subplots(figsize=(width, height))
    
@@ -76,12 +78,10 @@ if z_value:
         
 
         ax.set_xlabel("REDSHIFT")
-        ax.set_ylabel("MPC")
+        ax.set_ylabel("DISTANCE [MPC]")
         ax.legend()
 
         st.pyplot(fig)
-        width = st.slider("plot width", 1, 25, 10)
-        height = st.slider("plot height", 1, 25, 10)
 
         st.download_button('Download binary file', z_array)
         

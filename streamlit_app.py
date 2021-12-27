@@ -86,7 +86,8 @@ if z_value:
 
         st.pyplot(fig)
 
-        st.download_button('Download binary file', z_array)
+    f = open("output.txt", encoding = 'utf-8')
+    st.download_button('Download text file', f)
         
         
 

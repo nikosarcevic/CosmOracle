@@ -1,3 +1,12 @@
+"""
+CosmoComputeApp
+Created December 2021
+@authors: 
+[Marco Bonici](https://github.com/marcobonici), 
+[Niko Sarcevic](https://github.com/nikosarcevic) and 
+[Matthijs van der Wild](https://github.com/lonbar)
+"""
+
 # %%
 import numpy as np
 import streamlit as st
@@ -5,11 +14,21 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 
-
-
+# Page settings
 
 st.set_page_config(page_title='CosmoCompute')
 
+<<<<<<< HEAD
+=======
+st.title('CosmoCompute')
+
+st.markdown('Hello and welcome to CosmoCompute!')
+st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
+st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
+
+#Sidebar settings
+
+>>>>>>> fb837f9030b47972f69cb8a48a5ff024aaabb295
 logo, name = st.sidebar.columns(2)
 #with logo:
     #image = 'https://raw.githubusercontent.com/rdzudzar/DistributionAnalyser/main/images/logo_da.png?token=AIAWV2ZRCFKYM42DVFTD3OLAN3CQK'
@@ -19,7 +38,6 @@ with name:
                 Cosmo \n Compute </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
-
 
 
 #Default values
@@ -41,6 +59,7 @@ wa_value = st.sidebar.text_input('wa', str(wa))
 
 sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 
+<<<<<<< HEAD
 if not z_value:
     st.title('CosmoCompute')
     st.markdown('Hello and welcome to CosmoCompute!')
@@ -48,6 +67,8 @@ if not z_value:
     st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
     st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
 
+=======
+>>>>>>> fb837f9030b47972f69cb8a48a5ff024aaabb295
 if z_value:
     st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     st.write('Luminosity distance at redshift', z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
@@ -90,11 +111,9 @@ if z_value:
     file_name = st.text_input('Filename', "filename.txt")
     st.download_button('Download text file', f, file_name = file_name)
         
-        
-
-# Write About
+# About
 st.sidebar.header("About")
-st.sidebar.warning(
+st.sidebar.info(
                 """
                 CosmoCompute app is created and maintained by 
                 [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its

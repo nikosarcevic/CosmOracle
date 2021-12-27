@@ -21,7 +21,7 @@ logo, name = st.sidebar.columns(2)
     #image = 'https://raw.githubusercontent.com/rdzudzar/DistributionAnalyser/main/images/logo_da.png?token=AIAWV2ZRCFKYM42DVFTD3OLAN3CQK'
     #st.image(image, use_column_width=True)
 with name:
-    st.markdown("<h2 style='text-align: center; color: orange;'> \
+    st.markdown("<h2 style='text-align: middle; color: orange;'> \
                 CosmoCompute </h2>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")

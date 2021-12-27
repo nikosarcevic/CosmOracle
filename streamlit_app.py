@@ -5,6 +5,89 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 
+
+import plotly.figure_factory as ff
+
+
+
+# This code is different for each deployed app.
+CURRENT_THEME = "blue"
+IS_DARK_THEME = True
+EXPANDER_TEXT = """
+    This is a custom theme. You can enable it by copying the following code
+    to `.streamlit/config.toml`:
+    ```python
+    [theme]
+    primaryColor = "#E694FF"
+    backgroundColor = "#00172B"
+    secondaryBackgroundColor = "#0083B8"
+    textColor = "#C6CDD4"
+    font = "sans-serif"
+    ```
+    """
+
+
+# This code is the same for each deployed app.
+st.image(
+    "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/artist-palette_1f3a8.png",
+    width=100,
+)
+
+"""
+# Try out Theming!
+Click on the images below to view this app with different themes. 
+"""
+
+""
+
+THEMES = [
+    "light",
+    "dark",
+    "green",
+    "blue",
+]
+GITHUB_OWNER = "streamlit"
+
+# Show thumbnails for available themes.
+# As html img tags here, so we can add links on them.
+cols = st.beta_columns(len(THEMES))
+for col, theme in zip(cols, THEMES):
+
+    # Get repo name for this theme (to link to correct deployed app)-
+    if theme == "light":
+        repo = "theming-showcase"
+    else:
+        repo = f"theming-showcase-{theme}"
+
+    # Set border of current theme to red, otherwise black or white
+    if theme == CURRENT_THEME:
+        border_color = "red"
+    else:
+        border_color = "lightgrey" if IS_DARK_THEME else "black"
+
+    col.markdown(
+        #f'<p align=center><a href="https://share.streamlit.io/{GITHUB_OWNER}/{repo}/main"><img style="border: 1px solid {border_color}" alt="{theme}" src="https://raw.githubusercontent.com/{GITHUB_OWNER}/theming-showcase/main/thumbnails/{theme}.png" width=150></a></p>',
+        f'<p align=center><a href="https://apps.streamlitusercontent.com/{GITHUB_OWNER}/{repo}/main/streamlit_app.py/+/"><img style="border: 1px solid {border_color}" alt="{theme}" src="https://raw.githubusercontent.com/{GITHUB_OWNER}/theming-showcase/main/thumbnails/{theme}.png" width=150></a></p>',
+        unsafe_allow_html=True,
+    )
+    if theme in ["light", "dark"]:
+        theme_descriptor = theme.capitalize() + " theme"
+    else:
+        theme_descriptor = "Custom theme"
+    col.write(f"<p align=center>{theme_descriptor}</p>", unsafe_allow_html=True)
+
+
+""
+with st.beta_expander("Not loading?"):
+    st.write(
+        "You probably played around with themes before and overrode this app's theme. Go to ☰ -> Settings -> Theme and select *Custom Theme*."
+    )
+with st.beta_expander("How can I use this theme in my app?"):
+    st.write(EXPANDER_TEXT)
+
+""
+""
+
 #Default values
 H0=67
 ΩM=0.32

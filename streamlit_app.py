@@ -22,7 +22,7 @@ logo, name = st.sidebar.columns(2)
     #st.image(image, use_column_width=True)
 with name:
     st.markdown("<h1 style='text-align: left; color: orange;'> \
-                CosmoCalc </h1>", unsafe_allow_html=True)
+                CosmoCompute </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
 

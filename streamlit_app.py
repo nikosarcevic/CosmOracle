@@ -27,7 +27,7 @@ with name:
 st.sidebar.write(" ")
 
 z_value = st.sidebar.text_input('Redshift z')
-H0_value = st.sidebar.text_input('Hubble Constant *H0*', str(H0))
+H0_value = st.sidebar.text_input('Hubble Constant H0', str(H0))
 ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
 ΩDE_value = st.sidebar.text_input('Dark Energy Density ΩΛ', str(ΩDE))
 ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
@@ -78,7 +78,7 @@ if z_value:
         
 
         ax.set_xlabel("REDSHIFT")
-        ax.set_ylabel("MPC")
+        ax.set_ylabel("DISTANCE [MPC]")
         ax.legend()
 
         st.pyplot(fig)

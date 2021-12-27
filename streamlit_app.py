@@ -46,7 +46,7 @@ THEMES = [
     "green",
     "blue",
 ]
-GITHUB_OWNER = "streamlit"
+GITHUB_OWNER = "nikosarcevic"
 
 # Show thumbnails for available themes.
 # As html img tags here, so we can add links on them.

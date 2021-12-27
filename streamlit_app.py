@@ -10,14 +10,6 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='CosmoCompute')
 
-st.title('CosmoCompute')
-
-st.markdown('Hello and welcome to CosmoCompute!')
-st.markdown(' ')
-            
-st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
-st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
-
 logo, name = st.sidebar.columns(2)
 #with logo:
     #image = 'https://raw.githubusercontent.com/rdzudzar/DistributionAnalyser/main/images/logo_da.png?token=AIAWV2ZRCFKYM42DVFTD3OLAN3CQK'
@@ -49,7 +41,12 @@ wa_value = st.sidebar.text_input('wa', str(wa))
 
 sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 
-
+if not z_value:
+    st.title('CosmoCompute')
+    st.markdown('Hello and welcome to CosmoCompute!')
+    st.markdown(' ')
+    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
+    st.markdown('CosmoCompute will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
 
 if z_value:
     st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')

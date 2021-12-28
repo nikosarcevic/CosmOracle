@@ -52,8 +52,8 @@ sig_digits = int(st.sidebar.text_input('Significant Digits', str(4)))
 if not z_value:
     st.title('CosmΩracle')
     st.markdown('Hello and welcome to CosmΩracle!')
-    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter')
-    st.markdown('CosmΩracle will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
+    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. Note that the default cosmology is already set.')
+    st.markdown('CosmΩracle will also plot those distances as a function of redshift. In cse you want to plot it yourself - you can easily download the data in a .txt format.')
 
 if not z_value:
     st.title("About")

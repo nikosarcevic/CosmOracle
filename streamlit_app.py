@@ -57,7 +57,7 @@ if not z_value:
     st.markdown('CosmΩracle will also plot those distances for you. And if you wish to plot them yourself - you can easily download the data in a .txt format (scroll below).')
 
 if not z_value:
-    st.header("About")
+    st.title("About")
     st.markdown(
                     """
                     CosmΩracle app is created and maintained by 

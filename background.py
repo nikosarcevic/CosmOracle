@@ -128,6 +128,22 @@ def hubble_time(H0=constants['Hubble0']):
 def lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                               ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
                               w0=constants['w0'], wa=constants['wa']):
+    """
+    Method to compute the lookback time
+    """
+    integrand = lambda x: 1/(E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
+    if isinstance(z, float) or isinstance(z, int):
+        if z < 0:
+            raise TypeError("Enter a non-negative redshift.")
+        result, _ = integrate.quad(integrand, 0, z)
+    elif isinstance(z, np.ndarray):
+        if any(t < 0 for t in z):
+            raise TypeError("Enter a non-negative redshift.")
+        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    else:
+        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+    c0 = constants['speed-of-light']
+    return result*hubble_time(H0)*1e-9
     
 def calculate_distance_modulus(d):
     '''

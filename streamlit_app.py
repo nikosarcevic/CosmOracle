@@ -105,6 +105,7 @@ if z_value:
             ax.spines[axis].set_linewidth(3)
 
         ax.tick_params(width=3)
+        ax.tick_params(axis='both', labelsize=12)
 
         ax.set_facecolor(colors['white'])
         fig.patch.set_facecolor(colors['white'])
@@ -123,8 +124,8 @@ if z_value:
         frame.set_facecolor(colors['white'])
         frame.set_edgecolor(colors['white'])
 
-        ax.set_xlabel('REDSHIFT')
-        ax.set_ylabel('DISTANCE [Mpc]')
+        ax.set_xlabel('REDSHIFT', size=15)
+        ax.set_ylabel('DISTANCE [Mpc]', size=15)
 
         st.pyplot(fig)
         

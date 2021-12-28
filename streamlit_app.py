@@ -55,7 +55,7 @@ if not z_value:
     st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. Note that the default cosmology is already set.')
     st.markdown('CosmΩracle will also plot those distances as a function of redshift. In case you want to plot it yourself - you can easily download the data in a .txt format.')
     
-    my_expander = st.expander(label='Click here to check the tutorial')
+    my_expander = st.expander(label='Click here for demo')
     with my_expander:
         'Here we give a short tutorial on how the app works and what it can be done with it.'
         #clicked = st.button('Click me!')

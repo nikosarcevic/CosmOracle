@@ -110,11 +110,11 @@ if z_value:
         fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-')
+            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
         if plot_DLz:
-            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--')
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:
-            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':')
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
         
 
         legend = plt.legend(frameon = 1)

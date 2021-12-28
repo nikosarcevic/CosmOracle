@@ -38,9 +38,9 @@ def plot_distances(z_array, rz_array, trz_array, DLz_array, DAz_array):
         if plot_trz:
             ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
         if plot_DLz:
-           plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:
-            plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
         
 
         legend = plt.legend(frameon = 1)

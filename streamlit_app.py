@@ -100,6 +100,11 @@ if z_value:
 
         ax.yaxis.label.set_color(colors['orange'])
         ax.xaxis.label.set_color(colors['orange'])
+        
+        for axis in ['top','bottom','left','right']:
+            ax.spines[axis].set_linewidth(2)
+
+        ax.tick_params(width=2)
 
         ax.set_facecolor(colors['white'])
         fig.patch.set_facecolor(colors['white'])

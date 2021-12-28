@@ -58,7 +58,7 @@ if not z_value:
 
 if not z_value:
     st.header("About")
-    st..markdown(
+    st.markdown(
                     """
                     CosmΩracle app is created and maintained by 
                     [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its

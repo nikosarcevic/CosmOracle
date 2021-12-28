@@ -105,15 +105,15 @@ if z_value:
         fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['orange'], ls='-')
+            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-')
         if plot_DLz:
-            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['orange'], ls='--')
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--')
         if plot_DAz:
-            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['orange'], ls=':')
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':')
         
 
         legend = plt.legend(frameon = 1)
-        plt.setp(legend.get_texts(), color=colors['orange'])
+        plt.setp(legend.get_texts(), color=colors['gray'])
         frame = legend.get_frame()
         frame.set_facecolor(colors['white'])
         frame.set_edgecolor(colors['white'])

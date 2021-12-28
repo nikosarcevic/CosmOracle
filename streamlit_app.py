@@ -22,7 +22,7 @@ st.set_page_config(page_title='CosmΩracle')
 
 logo, name = st.sidebar.columns(2)
 with logo:
-    image = 'https://raw.githubusercontent.com/nikosarcevic/CosmOracle/305e3ed62ddfa03912981cb9220a5d8c0b427a41/images/logo.svg'
+    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/logo.png?raw=true'
     st.image(image, use_column_width=True)
 with name:
     st.markdown("<h1 style='text-align: left; color: #333333;'> \

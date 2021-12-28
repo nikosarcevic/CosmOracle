@@ -100,6 +100,21 @@ def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-densit
     d_l = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) * (1 + z) 
     
     return d_l
+
+def distance_modulus(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                              w0=constants['w0'], wa=constants['wa']):
+    
+    '''
+    Method to compute the distance modulus DM. No k-correction included.
+    '''
+    
+    DL = luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                              w0=constants['w0'], wa=constants['wa'])
+    DM = 5 * np.log(DL / 10)
+    
+    return DM
     
 def calculate_distance_modulus(d):
     '''

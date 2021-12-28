@@ -1,5 +1,5 @@
 <p align="center">
-<img width="400px" src="https://raw.githubusercontent.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png"/>
+<img width="400px" src="https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png"/>
 </p>
 
 # CosmoOracle

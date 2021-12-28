@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="455.04pt" height="587.52pt" viewBox="0 0 455.04 587.52">
-<g enable-background="new">
-<clipPath id="cp0">
-<path transform="matrix(1,0,0,-1,0,587.52)" d="M 0 -.00001071236 L 455.04 -.00001071236 L 455.04 587.52 L 0 587.52 Z "/>
-</clipPath>
-<g clip-path="url(#cp0)">
-<path transform="matrix(1,0,0,-1,0,587.52)" d="M 0 -.00001071236 L 455.04 -.00001071236 L 455.04 587.52 L 0 587.52 Z " fill="#ffffff"/>
-</g>
-<path transform="matrix(1,0,0,-1,0,587.52)" d="M 56.76418 600.3415 L 407.1079 600.0816 L 406.6286 -45.94238 L 56.2848 -45.68241 L 56.76418 600.3415 Z " fill="#ffffff" fill-opacity="0"/>
-<text xml:space="preserve" transform="matrix(2.484707 .00184377 -.00184377 2.484707 -1809.447 -356.6773)" font-size="200" font-family="AppleSDGothicNeo"><tspan y="327.8314" x="761.1811">&#x039b;</tspan></text>
-<path transform="matrix(1,0,0,-1,0,587.52)" d="M 42.7606 562.7514 L 425.4056 562.4675 L 424.9483 -53.73995 L 42.30334 -53.45601 L 42.7606 562.7514 Z " fill="#ffffff" fill-opacity="0"/>
-<text xml:space="preserve" transform="matrix(2.484707 .00184377 -.00184377 2.484707 -2155.371 -968.13906)" font-size="190" font-family="AppleSDGothicNeo"><tspan y="579.9509" x="894.9601">&#x03a9;</tspan></text>
-</g>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="13mm"
+   height="10mm"
+   viewBox="0 0 13 10"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="12.429181"
+     inkscape:cx="20.878287"
+     inkscape:cy="20.113957"
+     inkscape:window-width="1920"
+     inkscape:window-height="1064"
+     inkscape:window-x="0"
+     inkscape:window-y="16"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(-59.656612,-50.966385)" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-59.656612,-50.966385)">
+    <rect
+       style="fill:#ffc345;fill-opacity:1;stroke:none;stroke-width:0.969038"
+       id="rect10810"
+       width="13"
+       height="10"
+       x="59.656612"
+       y="50.966385"
+       clip-path="none" />
+    <g
+       id="g10997"
+       transform="matrix(0.99899782,0,0,1.0000371,2.457004,-6.2947643)"
+       clip-path="none">
+      <text
+         xml:space="preserve"
+         style="font-size:10.5831px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264577"
+         x="59.811726"
+         y="65.952286"
+         id="text4323"
+         transform="scale(0.99997846,1.0000215)"><tspan
+           sodipodi:role="line"
+           id="tspan4321"
+           style="fill:#333330;fill-opacity:1;stroke-width:0.264577"
+           x="59.811726"
+           y="65.952286">Ω</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:10.5665px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264164"
+         x="59.760651"
+         y="66.343239"
+         id="text8353"
+         transform="scale(1.007486,0.9925696)"><tspan
+           sodipodi:role="line"
+           id="tspan8351"
+           style="fill:#333330;fill-opacity:1;stroke-width:0.264164"
+           x="59.760651"
+           y="66.343239">Λ</tspan></text>
+    </g>
+  </g>
 </svg>

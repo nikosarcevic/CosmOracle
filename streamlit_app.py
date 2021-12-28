@@ -83,18 +83,43 @@ if z_value:
         height = st.slider("plot height", 1, 25, 5)
         
         fig, ax = plt.subplots(figsize=(width, height))
+        
+        colors = {
+         'orange' : '#ffc345',
+         'gray' : '#333333',
+         'white' : '#FFFFFF',
+        }
+        
+        ax.spines['bottom'].set_color(colors['orange'])
+        ax.spines['top'].set_color(colors['orange']) 
+        ax.spines['right'].set_color(colors['orange'])
+        ax.spines['left'].set_color(colors['orange'])
+
+        ax.tick_params(axis='x', colors=colors['orange'])
+        ax.tick_params(axis='y', colors=colors['orange'])
+
+        ax.yaxis.label.set_color(colors['orange'])
+        ax.xaxis.label.set_color(colors['orange'])
+
+        ax.set_facecolor(colors['white'])
+        fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance')
+            ax.plot(z_array, rz_array, label='Comoving Distance', colors['orange'], ls='-')
         if plot_DLz:
-            ax.plot(z_array, DLz_array, label='Luminosity Distance')
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', colors['orange'], ls='--')
         if plot_DAz:
-            ax.plot(z_array, DAz_array, label='Angular Diameter Distance')
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', colors['orange'], ls=':')
         
 
-        ax.set_xlabel("REDSHIFT")
-        ax.set_ylabel("DISTANCE [MPC]")
-        ax.legend()
+        legend = plt.legend(frameon = 1)
+        plt.setp(legend.get_texts(), color=colors['orange'])
+        frame = legend.get_frame()
+        frame.set_facecolor(colors['white'])
+        frame.set_edgecolor(colors['white'])
+
+        ax.set_xlabel('REDSHIFT')
+        ax.set_ylabel('DISTANCE [Mpc]')
 
         st.pyplot(fig)
         

@@ -11,7 +11,7 @@ def plot_distances(z_array, rz_array, trz_array, DLz_array, DAz_array):
         height = st.slider("plot height", 1, 25, 5)
         
         fig, ax = plt.subplots(figsize=(width, height))
-        a
+        
         colors = {
          'orange' : '#ffc345',
          'gray' : '#333333',

@@ -62,26 +62,29 @@ if not z_value:
                 
 if z_value:
     st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
+    st.write('Transverse comoving distance at redshift', z_value, 'is:', str(round(bg.transverse_comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     st.write('Luminosity distance at redshift', z_value, 'is:', str(round(bg.luminosity_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     st.write('Angular diameter distance at redshift', z_value, 'is:', str(round(bg.angular_diameter_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')
     z_array = np.linspace(0, float(z_value), 300)
 
     rz_array = bg.comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
+    trz_array = bg.transverse_comoving_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
     DLz_array = bg.luminosity_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
     DAz_array = bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
     
-    stacked_array = np.vstack((z_array, rz_array, DLz_array, DAz_array)).T
-    np.savetxt("output.txt", stacked_array, header='z, DCz, DLz, DAz', delimiter=',', comments='')
+    stacked_array = np.vstack((z_array, rz_array, trz_array, DLz_array, DAz_array)).T
+    np.savetxt("output.txt", stacked_array, header='z, DCz, DMz, DLz, DAz', delimiter=',', comments='')
     
     st.write(" ")
 
     plot_rz = st.checkbox('Plot Comoving Distance Dc')
+    plot_trz = st.checkbox('Plot Transverse Comoving Distance Dm')
     plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
     plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
     
     st.write(" ")
 
-    if plot_rz or plot_DLz or plot_DAz:
+    if plot_rz or plot_trz or plot_DLz or plot_DAz:
         
         width = st.slider("plot width", 1, 25, 10)
         height = st.slider("plot height", 1, 25, 5)
@@ -116,6 +119,8 @@ if z_value:
    
         if plot_rz:
             ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
+        if plot_trz:
+            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
         if plot_DLz:
             ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:

@@ -57,8 +57,8 @@ if not z_value:
     
     my_expander = st.expander(label='Click for more')
     with my_expander:
-        'Hello there!'
-        clicked = st.button('Click me!')
+        'Here we give a short tutorial on how the app works and what it can be done with it.'
+        #clicked = st.button('Click me!')
 
 if not z_value:
     st.title("About")

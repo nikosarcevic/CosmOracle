@@ -13,7 +13,7 @@ import streamlit as st
 from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
-import plot_script as plot
+import plot_script as ps
 
 # Page settings
 
@@ -99,7 +99,7 @@ if z_value:
 
     if plot_rz or plot_trz or plot_DLz or plot_DAz:
         
-        plot.plot_distances(rz, tzr, DLz, DAz)
+        ps.plot_distances(rz, tzr, DLz, DAz)
         
         
         

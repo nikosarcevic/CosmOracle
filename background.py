@@ -113,6 +113,8 @@ def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     Dm = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     Dh = c0 / H0
     ΩK = round(1 - ΩM - ΩDE - ΩR, 7)
+    # the rounding is necessary since the expression is quite sensitive to the Universe geometry and,
+    # due to the floating point precision, we are nver gonna really obtain ΩK = 0
     if ΩK > 0:
         return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsinh(np.sqrt(ΩK)*Dm/Dh))
     elif  ΩK < 0:

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="455.04pt" height="587.52pt" viewBox="0 0 455.04 587.52">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,0,587.52)" d="M 0 -.00001071236 L 455.04 -.00001071236 L 455.04 587.52 L 0 587.52 Z "/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(1,0,0,-1,0,587.52)" d="M 0 -.00001071236 L 455.04 -.00001071236 L 455.04 587.52 L 0 587.52 Z " fill="#ffffff"/>
+</g>
+<path transform="matrix(1,0,0,-1,0,587.52)" d="M 56.76418 600.3415 L 407.1079 600.0816 L 406.6286 -45.94238 L 56.2848 -45.68241 L 56.76418 600.3415 Z " fill="#ffffff" fill-opacity="0"/>
+<text xml:space="preserve" transform="matrix(2.484707 .00184377 -.00184377 2.484707 -1809.447 -356.6773)" font-size="200" font-family="AppleSDGothicNeo"><tspan y="327.8314" x="761.1811">&#x039b;</tspan></text>
+<path transform="matrix(1,0,0,-1,0,587.52)" d="M 42.7606 562.7514 L 425.4056 562.4675 L 424.9483 -53.73995 L 42.30334 -53.45601 L 42.7606 562.7514 Z " fill="#ffffff" fill-opacity="0"/>
+<text xml:space="preserve" transform="matrix(2.484707 .00184377 -.00184377 2.484707 -2155.371 -968.13906)" font-size="190" font-family="AppleSDGothicNeo"><tspan y="579.9509" x="894.9601">&#x03a9;</tspan></text>
+</g>
+</svg>

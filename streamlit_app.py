@@ -39,13 +39,11 @@ w0=-1.
 wa=0
 speed_of_light=2.99792458e5
 
-z_value = st.sidebar.text_input('Redshift z')
-H0_value = st.sidebar.text_input('Hubble Constant H0', str(H0))
-ΩM_value = st.sidebar.text_input('Matter Density ΩM', str(ΩM))
-st.sidebar.subheader('ΩΛ')
-st.sidebar.subheader('Dark Energy Density')
-ΩDE_value = st.sidebar.text_input('', str(ΩDE))
-ΩR_value = st.sidebar.text_input('Radiation Density ΩR', str(ΩR))
+z_value = st.sidebar.text_input('Redshift')
+H0_value = st.sidebar.text_input('Hubble Constant', str(H0))
+ΩM_value = st.sidebar.text_input('Matter Density', str(ΩM))
+ΩDE_value = st.sidebar.text_input('Dark Energy Density', str(ΩDE))
+ΩR_value = st.sidebar.text_input('Radiation Density', str(ΩR))
 w0_value = st.sidebar.text_input('w0', str(w0))
 wa_value = st.sidebar.text_input('wa', str(wa))
 

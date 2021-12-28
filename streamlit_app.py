@@ -133,8 +133,8 @@ if z_value:
         frame.set_facecolor(colors['white'])
         frame.set_edgecolor(colors['white'])
 
-        ax.set_xlabel('REDSHIFT', size=15)
-        ax.set_ylabel('DISTANCE [Mpc]', size=15)
+        ax.set_xlabel('Redshift', size=15)
+        ax.set_ylabel('Distance [Mpc]', size=15)
 
         st.pyplot(fig)
         

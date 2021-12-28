@@ -101,20 +101,22 @@ def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-densit
     
     return d_l
 
-def distance_modulus(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                              w0=constants['w0'], wa=constants['wa']):
-    
-    '''
-    Method to compute the distance modulus DM. No k-correction included.
-    '''
-    
-    DL = luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                              w0=constants['w0'], wa=constants['wa'])
-    DM = 5 * np.log(DL / 10)
-    
-    return DM
+def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                    ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                    w0=constants['w0'], wa=constants['wa'])
+    """
+    Compute the comoving volume
+    """
+    c0 = constants['speed-of-light']
+    Dm = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
+    Dh = c0 / H0
+    ΩK = 1 - ΩM - ΩDE - ΩR
+    if ΩK > 0:
+        return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsinh(np.sqrt(ΩK)*Dm/Dh))
+    elif  ΩK < 0:
+        (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsin(np.sqrt(-ΩK)*Dm/Dh))
+    else:
+        return 4*np.pi/3*Dm**3
     
 def calculate_distance_modulus(d):
     '''

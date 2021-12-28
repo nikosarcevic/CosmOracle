@@ -34,13 +34,13 @@ def plot_distances(z_array, rz_array, trz_array, DLz_array, DAz_array):
         fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            myplot = ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
+            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
         if plot_trz:
-            myplot = ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
+            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
         if plot_DLz:
-           myplot = ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
+           plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:
-            myplot = ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
+            plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
         
 
         legend = plt.legend(frameon = 1)
@@ -51,6 +51,8 @@ def plot_distances(z_array, rz_array, trz_array, DLz_array, DAz_array):
 
         ax.set_xlabel('Redshift', size=15)
         ax.set_ylabel('Distance [Mpc]', size=15)
+        
+        myplot = st.pyplot(fig)
         
         return myplot
         

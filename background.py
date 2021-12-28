@@ -103,10 +103,12 @@ def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-densit
 
 def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                     ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                    w0=constants['w0'], wa=constants['wa'])
+                    w0=constants['w0'], wa=constants['wa']):
+
     """
     Compute the comoving volume
     """
+    
     c0 = constants['speed-of-light']
     Dm = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     Dh = c0 / H0
@@ -114,7 +116,7 @@ def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     if ΩK > 0:
         return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsinh(np.sqrt(ΩK)*Dm/Dh))
     elif  ΩK < 0:
-        (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsin(np.sqrt(-ΩK)*Dm/Dh))
+        return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsin(np.sqrt(-ΩK)*Dm/Dh))
     else:
         return 4*np.pi/3*Dm**3
     

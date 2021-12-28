@@ -112,11 +112,11 @@ def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     c0 = constants['speed-of-light']
     Dm = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     Dh = c0 / H0
-    ΩK = 1 - ΩM - ΩDE - ΩR
+    ΩK = round(1 - ΩM - ΩDE - ΩR, 7)
     if ΩK > 0:
         return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsinh(np.sqrt(ΩK)*Dm/Dh))
     elif  ΩK < 0:
-        return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(ΩK)*np.arcsin(np.sqrt(-ΩK)*Dm/Dh))
+        return (4*np.pi*Dh**3/(2*ΩK))*(Dm/Dh*np.sqrt(1+ΩK*(Dm/Dh)**2)-1/np.sqrt(-ΩK)*np.arcsin(np.sqrt(-ΩK)*Dm/Dh))
     else:
         return 4*np.pi/3*Dm**3
     

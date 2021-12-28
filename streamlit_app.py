@@ -25,9 +25,6 @@ logo, name = st.sidebar.columns(2)
 with logo:
     image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png?raw=true'
     st.image(image, use_column_width=True)
-#with name:
-    #st.markdown("<h1 style='text-align: left; color: #333333;'> \
-                #CosmΩracle </h1>", unsafe_allow_html=True)
 
 st.sidebar.write(" ")
 

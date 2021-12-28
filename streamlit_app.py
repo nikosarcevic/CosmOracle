@@ -13,6 +13,7 @@ import streamlit as st
 from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
+import plot_script as plot
 
 # Page settings
 
@@ -98,7 +99,7 @@ if z_value:
 
     if plot_rz or plot_trz or plot_DLz or plot_DAz:
         
-        width = st.slider("plot width", 1, 25, 10)
+        '''width = st.slider("plot width", 1, 25, 10)
         height = st.slider("plot height", 1, 25, 5)
         
         fig, ax = plt.subplots(figsize=(width, height))
@@ -148,7 +149,7 @@ if z_value:
         ax.set_xlabel('Redshift', size=15)
         ax.set_ylabel('Distance [Mpc]', size=15)
 
-        st.pyplot(fig)
+        st.pyplot(fig)'''
         
     st.write(" ")
 

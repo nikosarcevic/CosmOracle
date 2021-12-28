@@ -6,6 +6,8 @@
 
 |Streamlit|
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/nikosarcevic/cosmoracle/main)
+
 This is the source code repository for CosmoOracle -- a calculator for quantities in cosmology.
 
 URL: https://share.streamlit.io/nikosarcevic/cosmoracle/main

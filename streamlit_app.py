@@ -73,7 +73,7 @@ if z_value:
     DAz_array = bg.angular_diameter_distance(z_array, H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) )
     
     stacked_array = np.vstack((z_array, rz_array, trz_array, DLz_array, DAz_array)).T
-    np.savetxt("output.txt", stacked_array, header='z, DCz, DMz, DLz, DAz', delimiter=',', comments='')
+    np.savetxt("output.txt", stacked_array, header='z,DCz,DMz,DLz,DAz', delimiter=',', comments='')
     
     st.write(" ")
 

@@ -15,17 +15,23 @@ import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
 
-st.set_page_config(page_title='CosmΩracle')
-
-
-#Sidebar settings
-
-logo, name = st.sidebar.columns(2)
-with logo:
-    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowNameOld.png?raw=true'
-    st.image(image, use_column_width=True)
-
 st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+
 
 #Default values
 H0=67
@@ -96,13 +102,4 @@ if z_value:
     st.download_button('Download text file', f, file_name = file_name)
     
     
-# About
-st.sidebar.header("About")
-st.sidebar.markdown(
-                """
-                CosmΩracle app is created and maintained by 
-                [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
-                [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
-                repo, share it and feel free to open an issue if you find a bug 
-                or if you want some additional features.
-                """)        
+  

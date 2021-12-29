@@ -23,6 +23,7 @@ st.set_page_config(page_title='CosmΩracle')
 #Sidebar settings
 
 logo, name = st.sidebar.columns(2)
+
 with logo:
     image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowNameOld.png?raw=true'
     st.image(image, use_column_width=True)
@@ -30,12 +31,8 @@ with logo:
 st.sidebar.write(" ")
 
 def main():
-    """
-    Register pages Introduction and Distances:
-        page_intro - contains a page with app information
-        page_distances - contains a page to calculate distances in
-        cosmology
-    """
+    
+    '''add pages'''
 
     pages = {
         "Introduction": page_intro,
@@ -60,7 +57,6 @@ def main():
                     repo, share it and feel free to open an issue if you find a bug 
                     or if you want some additional features.
                     """)
-
 
 if __name__ == "__main__":
     main()

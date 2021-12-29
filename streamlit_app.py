@@ -107,7 +107,12 @@ if z_value:
         log = ps.plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
         
         lin_plot = st.pyplot(lin)
-        #log_plot = st.pyplot(log)
+        
+        
+        log_checkbox = st.checkbox('Semi-log scale')
+        
+        if log_checkbox:
+            log_plot = st.pyplot(log)
         
         
     st.write(" ")

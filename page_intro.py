@@ -18,15 +18,6 @@ import plot_script as ps
 st.set_page_config(page_title='CosmΩracle')
 
 
-#Sidebar settings
-
-logo, name = st.sidebar.columns(2)
-with logo:
-    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowNameOld.png?raw=true'
-    st.image(image, use_column_width=True)
-
-st.sidebar.write(" ")
-
 
 st.title('CosmΩracle')
 st.markdown('Hello and welcome to CosmΩracle!')
@@ -49,17 +40,5 @@ st.title('Cite')
 
 st.title('References')
 st.markdown('D. Hogg, *Distance Measures in Cosmology*, 2000 [astro-ph/9905116v4](https://arxiv.org/abs/astro-ph/9905116)')
-
-
-# About
-st.sidebar.header("About")
-st.sidebar.markdown(
-                """
-                CosmΩracle app is created and maintained by 
-                [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
-                [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
-                repo, share it and feel free to open an issue if you find a bug 
-                or if you want some additional features.
-                """)
 
 

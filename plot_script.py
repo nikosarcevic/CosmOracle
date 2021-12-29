@@ -67,6 +67,8 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         
         fig, ax = plt.subplots(figsize=(width, height))
         
+        plt.rcParams["xtick.major.size"] = 5
+        
         colors = {
          'orange' : '#ffc345',
          'gray' : '#333333',
@@ -113,7 +115,7 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         ax.spines['left'].set_color(colors['orange'])
         ax.yaxis.label.set_color(colors['orange'])
 
-        ax.tick_params(axis='y', colors=colors['orange'], width=2, which='both')
+        ax.tick_params(axis='y', colors=colors['orange'], width=1.5, which='both')
        
         
         return fig

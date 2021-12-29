@@ -1,7 +1,7 @@
 import unittest
 import background as bg
 
-class ComovingDistanceTest(unittest.TestCase):
+class LuminosityDistanceTest(unittest.TestCase):
     def test_redshift(self):
         data = 1.
         result = bg.luminosity_distance(data)

@@ -232,3 +232,15 @@ def calculate_distance_from_distance_modulus_for_given_M_and_m(M, m):
     d = 10**((m-M)/5 + 1)
     
     return d
+
+def hubble_time(H0=constants['Hubble0']):
+    
+    tH = 1 / H0
+    
+    return tH
+
+def hubble_distance(H0=constants['Hubble0']):
+    
+    DH = c/H0
+    
+    return DH

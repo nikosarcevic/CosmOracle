@@ -37,13 +37,13 @@ def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz
         fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            myplot = ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
+            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
         if plot_trz:
-            myplot = ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
+            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
         if plot_DLz:
-            myplot = ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:
-            myplot = ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
         
 
         legend = plt.legend(frameon = 1)
@@ -57,5 +57,5 @@ def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz
         
         
         
-        return myplot
+        return fig
         

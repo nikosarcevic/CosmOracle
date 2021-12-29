@@ -14,7 +14,7 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
-from page_intro impoirt page_intro
+from page_intro import page_intro
 from page_distances import page_distances
 
 st.set_page_config(page_title='CosmΩracle')

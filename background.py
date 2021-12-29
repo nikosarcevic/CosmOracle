@@ -123,13 +123,16 @@ def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
         return 4*np.pi/3*Dm**3
 
 def hubble_time(H0=constants['Hubble0']):
-    return (9.78e11)/H0
+    """
+    Method to compute the Hubble time in Gyrs
+    """
+    return (9.78e2)/H0
 
 def lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                               ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
                               w0=constants['w0'], wa=constants['wa']):
     """
-    Method to compute the lookback time
+    Method to compute the lookback time in Gyrs
     """
     integrand = lambda x: 1/(E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
     if isinstance(z, float) or isinstance(z, int):
@@ -143,7 +146,7 @@ def lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     else:
         raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
     c0 = constants['speed-of-light']
-    return result*hubble_time(H0)*1e-9
+    return result*hubble_time(H0)
     
 def calculate_distance_modulus(d):
     '''
@@ -232,12 +235,6 @@ def calculate_distance_from_distance_modulus_for_given_M_and_m(M, m):
     d = 10**((m-M)/5 + 1)
     
     return d
-
-def hubble_time(H0=constants['Hubble0']):
-    
-    tH = 1 / H0
-    
-    return tH
 
 def hubble_distance(H0=constants['Hubble0']):
     

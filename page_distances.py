@@ -91,7 +91,7 @@ def show_page():
         st.download_button('Download text file', f, file_name = file_name)
     else:
         st.title(section_title)
-        st.write('Enter the value of redshift and cosmological parameters in the sidebar')
+        st.write('Enter the value of redshift and cosmological parameters in the sidebar and press enter.')
         
     return
   

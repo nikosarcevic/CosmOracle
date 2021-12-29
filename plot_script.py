@@ -4,10 +4,9 @@ import matplotlib.pyplot as plt
 import yaml
 import streamlit as st
 
-def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array):
+def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height):
         
-        width = st.slider("plot width", 1, 25, 10)
-        height = st.slider("plot height", 1, 25, 5)
+        
         
         fig, ax = plt.subplots(figsize=(width, height))
         
@@ -38,13 +37,13 @@ def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz
         fig.patch.set_facecolor(colors['white'])
    
         if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
+            myplot = ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
         if plot_trz:
-            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
+            myplot = ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
         if plot_DLz:
-            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
+            myplot = ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
         if plot_DAz:
-            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
+            myplot = ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
         
 
         legend = plt.legend(frameon = 1)
@@ -56,7 +55,7 @@ def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz
         ax.set_xlabel('Redshift', size=15)
         ax.set_ylabel('Distance [Mpc]', size=15)
         
-        myplot = st.pyplot(fig)
+        
         
         return myplot
         

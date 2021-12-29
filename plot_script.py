@@ -88,7 +88,7 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
             ax.spines[axis].set_linewidth(3)
 
         ax.tick_params(width=3)
-        ax.tick_params(axis='both', labelsize=12)
+        ax.tick_params(axis='both', labelsize=12, colors=colors['orange'])
 
         ax.set_facecolor(colors['white'])
         fig.patch.set_facecolor(colors['white'])

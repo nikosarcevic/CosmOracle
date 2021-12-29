@@ -23,7 +23,7 @@ st.set_page_config(page_title='CosmΩracle')
 
 logo, name = st.sidebar.columns(2)
 with logo:
-    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowNameOld.png?raw=true'
+    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png?raw=true'
     st.image(image, use_column_width=True)
 
 st.sidebar.write(" ")

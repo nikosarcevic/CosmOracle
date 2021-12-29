@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import yaml
 
-def plot_distances(z_array, rz_array, trz_array, DLz_array, DAz_array):
+def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array):
         
         fig, ax = plt.subplots(figsize=(width, height))
         

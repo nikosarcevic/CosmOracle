@@ -43,9 +43,9 @@ st.sidebar.title("Main options")
 
 
 # Radio buttons to select desired option
-#page = st.sidebar.radio("Page:", tuple(pages.keys()))
+page = st.sidebar.radio("Page:", tuple(pages.keys()))
 #page = st.sidebar.selectbox('Page', tuple(pages.keys()))
-page = st.sidebar.checkbox('Page', tuple(pages.keys()))
+#page = st.sidebar.checkbox('Page', tuple(pages.keys()))
 
 pages[page].show_page()
         

@@ -99,9 +99,11 @@ if z_value:
         width = st.slider("plot width", 1, 25, 10)
         height = st.slider("plot height", 1, 25, 5)
         
-        myplot = ps.plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
+        lin_plot = ps.plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
         
-        st.pyplot(myplot)
+        log_plot = ps.plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
+        
+        st.pyplot(log_plot)
         
         
     st.write(" ")

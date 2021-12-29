@@ -101,11 +101,12 @@ if z_value:
         width = st.slider("plot width", 1, 25, 10)
         height = st.slider("plot height", 1, 25, 5)
         
-        lin_plot = ps.plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
+        lin = ps.plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
         
-        log_plot = ps.plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
+        log = ps.plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
         
-        st.pyplot(log_plot)
+        lin_plot = st.pyplot(lin)
+        #log_plot = st.pyplot(log)
         
         
     st.write(" ")

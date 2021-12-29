@@ -67,8 +67,6 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         
         fig, ax = plt.subplots(figsize=(width, height))
         
-        plt.rcParams["xtick.major.size"] = 5
-        
         colors = {
          'orange' : '#ffc345',
          'gray' : '#333333',

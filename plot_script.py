@@ -73,6 +73,23 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
          'white' : '#FFFFFF',
         }
         
+        ax.spines['bottom'].set_color(colors['orange'])
+        ax.spines['top'].set_color(colors['orange']) 
+        ax.spines['right'].set_color(colors['orange'])
+        ax.spines['left'].set_color(colors['orange'])
+
+        ax.tick_params(axis='x', colors=colors['orange'])
+        ax.tick_params(axis='y', colors=colors['orange'])
+
+        ax.yaxis.label.set_color(colors['orange'])
+        ax.xaxis.label.set_color(colors['orange'])
+        
+        for axis in ['top','bottom','left','right']:
+            ax.spines[axis].set_linewidth(3)
+
+        ax.tick_params(axis='both', labelsize=12, width=3, colors=colors['orange'])
+        ax.set_facecolor(colors['white'])
+        fig.patch.set_facecolor(colors['white'])
        
         if plot_rz:
             ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
@@ -93,24 +110,11 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         ax.set_ylabel('Distance [Mpc]', size=15)
         
         ax.set_yscale('log')
-        
-        ax.spines['bottom'].set_color(colors['orange'])
-        ax.spines['top'].set_color(colors['orange']) 
-        ax.spines['right'].set_color(colors['orange'])
         ax.spines['left'].set_color(colors['orange'])
-
-        ax.tick_params(axis='x', colors=colors['orange'])
-        ax.tick_params(axis='y', colors=colors['orange'])
-
         ax.yaxis.label.set_color(colors['orange'])
-        ax.xaxis.label.set_color(colors['orange'])
-        
-        for axis in ['top','bottom','left','right']:
-            ax.spines[axis].set_linewidth(3)
 
-        ax.tick_params(axis='both', labelsize=12, width=3, colors=colors['orange'])
-        ax.set_facecolor(colors['white'])
-        fig.patch.set_facecolor(colors['white'])
+        ax.tick_params(axis='y', colors=colors['orange'], width=2, which='both')
+       
         
         return fig
 

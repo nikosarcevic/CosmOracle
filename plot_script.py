@@ -62,7 +62,7 @@ def plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
 def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height):
         
         '''
-        Plot the calculated distances as a function of redshift in a linear scale.
+        Plot the calculated distances as a function of redshift in a semi-log scale.
         '''
         
         fig, ax = plt.subplots(figsize=(width, height))
@@ -87,9 +87,7 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         for axis in ['top','bottom','left','right']:
             ax.spines[axis].set_linewidth(3)
 
-        ax.tick_params(width=3)
-        ax.tick_params(axis='both', labelsize=12, colors=colors['orange'], which='both)
-
+        ax.tick_params(axis='both', labelsize=12, width=3, colors=colors['orange'])
         ax.set_facecolor(colors['white'])
         fig.patch.set_facecolor(colors['white'])
    

@@ -38,7 +38,7 @@ pages = {
 
 
 st.sidebar.title("Main options")
-=======
+
 
 
 

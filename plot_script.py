@@ -73,6 +73,8 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
          'white' : '#FFFFFF',
         }
         
+        ax.set_yscale('log')
+        
         ax.spines['bottom'].set_color(colors['orange'])
         ax.spines['top'].set_color(colors['orange']) 
         ax.spines['right'].set_color(colors['orange'])
@@ -108,8 +110,6 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
 
         ax.set_xlabel('Redshift', size=15)
         ax.set_ylabel('Distance [Mpc]', size=15)
-        
-        ax.set_yscale('log')
         
         return fig
 

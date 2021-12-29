@@ -36,7 +36,7 @@ def main():
 
     pages = {
         "Introduction": page_intro,
-        "Calculate Distances": page_distances
+        #"Calculate Distances": page_distances
     }
 
     st.sidebar.title("Main options")

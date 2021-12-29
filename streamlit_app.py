@@ -69,6 +69,8 @@ if not z_value:
 if not z_value:
     st.title('References')
     
+    st.markdown('D. Hogg, Distance Measures in Cosmology [arXiv](https://arxiv.org/abs/astro-ph/9905116)')
+    
    
 if z_value:
     st.write('Comoving distance at redshift', z_value, 'is:', str(round(bg.comoving_distance(float(z_value), H0=float(H0_value), ΩM=float(ΩM_value), ΩDE=float(ΩDE_value), ΩR=float(ΩR_value), w0=float(w0_value) , wa=float(wa_value) ), sig_digits)), 'Mpc')

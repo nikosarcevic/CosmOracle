@@ -15,6 +15,18 @@ import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
 
+st.set_page_config(page_title='CosmΩracle')
+
+
+#Sidebar settings
+
+logo, name = st.sidebar.columns(2)
+with logo:
+    image = 'https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowNameOld.png?raw=true'
+    st.image(image, use_column_width=True)
+
+st.sidebar.write(" ")
+
 
 st.title('CosmΩracle')
 st.markdown('Hello and welcome to CosmΩracle!')

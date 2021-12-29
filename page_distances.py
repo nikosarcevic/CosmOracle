@@ -28,7 +28,7 @@ def show_page():
     speed_of_light=2.99792458e5
 
     z_value = st.sidebar.text_input('Redshift')
-    H0_value = st.sidebar.text_input('Hubble Constant', str(H0))
+    H0_value = st.sidebar.text_input('Hubble Constant [km/s/Mpc]', str(H0))
     ΩM_value = st.sidebar.text_input('Matter Density', str(ΩM))
     ΩDE_value = st.sidebar.text_input('Dark Energy Density', str(ΩDE))
     ΩR_value = st.sidebar.text_input('Radiation Density', str(ΩR))

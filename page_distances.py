@@ -19,13 +19,15 @@ import plot_script as ps
 def show_page():
 
     #Default values
-    H0=67
+    H0=67.
     ΩM=0.32
-    ΩR=0
+    ΩR=0.
     ΩDE=0.68
     w0=-1.
-    wa=0
+    wa=0.
     speed_of_light=2.99792458e5
+
+    section_title = "Cosmological Distances"
 
     z_value = st.sidebar.text_input('Redshift')
     H0_value = st.sidebar.text_input('Hubble Constant [km/s/Mpc]', str(H0))
@@ -85,6 +87,9 @@ def show_page():
         f = open("output.txt", encoding = 'utf-8')
         file_name = st.text_input('Name your file', "filename.txt")
         st.download_button('Download text file', f, file_name = file_name)
+    else:
+        st.title(section_title)
+        st.write('Enter the value of redshift and cosmological parameters in the sidebar')
         
     return
   

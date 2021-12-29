@@ -69,7 +69,7 @@ if not z_value:
 if not z_value:
     st.title('References')
     
-    st.markdown('D. Hogg, Distance Measures in Cosmology [arXiv](https://arxiv.org/abs/astro-ph/9905116)')
+    st.markdown('D. Hogg, Distance Measures in Cosmology, 2000 [astro-ph/9905116v4](https://arxiv.org/abs/astro-ph/9905116)')
     
    
 if z_value:

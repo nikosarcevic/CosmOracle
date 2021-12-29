@@ -14,7 +14,7 @@ from scipy import integrate
 import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
-from page_intro import page_intro
+from page_introduction import page_introduction
 from page_distances import page_distances
 
 st.set_page_config(page_title='CosmΩracle')
@@ -35,7 +35,7 @@ def main():
     '''add pages'''
 
     pages = {
-        "Introduction": page_intro,
+        "Introduction": page_introduction,
         #"Calculate Distances": page_distances
     }
 

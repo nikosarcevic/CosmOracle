@@ -114,7 +114,6 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         ax.yaxis.label.set_color(colors['orange'])
 
         ax.tick_params(axis='y', colors=colors['orange'], width=1.5, which='both')
-       
-        
+      
         return fig
 

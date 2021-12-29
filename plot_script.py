@@ -7,6 +7,9 @@ def plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz
         
         fig, ax = plt.subplots(figsize=(width, height))
         
+        width = st.slider("plot width", 1, 25, 10)
+        height = st.slider("plot height", 1, 25, 5)
+        
         colors = {
          'orange' : '#ffc345',
          'gray' : '#333333',

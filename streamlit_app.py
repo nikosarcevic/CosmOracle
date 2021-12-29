@@ -99,7 +99,7 @@ if z_value:
         width = st.slider("plot width", 1, 25, 10)
         height = st.slider("plot height", 1, 25, 5)
         
-        ps.plot_distances(rz_array, tzr_array, DLz_array, DAz_array)
+        ps.plot_distances(plot_rz, plot_trz, plot_DLz, plot_DAz, rz_array, tzr_array, DLz_array, DAz_array)
         
         
         

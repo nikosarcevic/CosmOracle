@@ -73,6 +73,25 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
          'white' : '#FFFFFF',
         }
         
+       
+        if plot_rz:
+            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
+        if plot_trz:
+            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
+        if plot_DLz:
+            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
+        if plot_DAz:
+            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
+
+        legend = plt.legend(frameon = 1)
+        plt.setp(legend.get_texts(), color=colors['gray'])
+        frame = legend.get_frame()
+        frame.set_facecolor(colors['white'])
+        frame.set_edgecolor(colors['white'])
+
+        ax.set_xlabel('Redshift', size=15)
+        ax.set_ylabel('Distance [Mpc]', size=15)
+        
         ax.set_yscale('log')
         
         ax.spines['bottom'].set_color(colors['orange'])
@@ -92,26 +111,6 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         ax.tick_params(axis='both', labelsize=12, width=3, colors=colors['orange'])
         ax.set_facecolor(colors['white'])
         fig.patch.set_facecolor(colors['white'])
-   
-        if plot_rz:
-            ax.plot(z_array, rz_array, label='Comoving Distance', color=colors['gray'], ls='-', lw=3)
-        if plot_trz:
-            ax.plot(z_array, trz_array, label='Transverse Comoving Distance', color=colors['gray'], ls='-.', lw=3)
-        if plot_DLz:
-            ax.plot(z_array, DLz_array, label='Luminosity Distance', color=colors['gray'], ls='--', lw=3)
-        if plot_DAz:
-            ax.plot(z_array, DAz_array, label='Angular Diameter Distance', color=colors['gray'], ls=':', lw=3)
-
-        legend = plt.legend(frameon = 1)
-        plt.setp(legend.get_texts(), color=colors['gray'])
-        frame = legend.get_frame()
-        frame.set_facecolor(colors['white'])
-        frame.set_edgecolor(colors['white'])
-
-        ax.set_xlabel('Redshift', size=15)
-        ax.set_ylabel('Distance [Mpc]', size=15)
         
         return fig
 
-
-        

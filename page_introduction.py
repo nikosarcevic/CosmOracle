@@ -15,7 +15,14 @@ import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
 
-st.set_page_config(page_title='CosmΩracle')
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
 
 
 

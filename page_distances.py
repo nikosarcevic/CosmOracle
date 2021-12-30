@@ -62,10 +62,10 @@ def show_page():
     
         st.write(" ")
 
-        plot_rz = st.checkbox('Plot Comoving Distance Dc')
-        plot_trz = st.checkbox('Plot Transverse Comoving Distance Dm')
-        plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
-        plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
+        plot_rz = st.checkbox('Plot Comoving Distance Dc(z)')
+        plot_trz = st.checkbox('Plot Transverse Comoving Distance Dm(z)')
+        plot_DLz = st.checkbox('Plot Luminosity Distance Dl(z)')
+        plot_DAz = st.checkbox('Plot Angular Diameter Distance Da(z)')
         
         st.write(" ")
 
@@ -89,15 +89,15 @@ def show_page():
         my_expander = st.expander(label='Click for more plots')
         with my_expander:
             
-            plot_VCz = st.checkbox('Plot Comoving Volume Vc')
-            plot_tlz = st.checkbox('Plot Lookback Time tl')
+            plot_VCz = st.checkbox('Plot Comoving Volume Vc(z)')
+            plot_tlz = st.checkbox('Plot Lookback Time tl(z)')
 
             if plot_VCz:
 
                 width = st.slider("Plot width Vcz", 1, 25, 10)
                 height = st.slider("lot height Vcz", 1, 25, 5)
 
-                log_checkbox = st.checkbox('Switch to semi-log scale Vcz')
+                log_checkbox = st.checkbox('Switch to semi-log scale Vc(z)')
                 
                 st.write(" ")
 
@@ -113,7 +113,7 @@ def show_page():
                 width = st.slider("Plot width tlz", 1, 25, 10)
                 height = st.slider("Plot height tlz", 1, 25, 5)
 
-                log_checkbox = st.checkbox('Switch to semi-log scale tlz')
+                log_checkbox = st.checkbox('Switch to semi-log scale tl(z)')
                 
                 st.write(" ")
 

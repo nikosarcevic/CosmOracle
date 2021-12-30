@@ -89,8 +89,8 @@ def show_page():
         my_expander = st.expander(label='Click for more plots')
         with my_expander:
             
-            plot_VCz = st.checkbox('Plot Comoving Volume Vc')
-            plot_tlz = st.checkbox('Plot Lookback Time tl')
+            plot_VCz = st.selectbox('Plot Comoving Volume Vc')
+            plot_tlz = st.selectbox('Plot Lookback Time tl')
 
             if plot_VCz:
 

@@ -125,7 +125,7 @@ def show_page():
             
         st.write(" ")
         
-            st.info('Info here')
+        st.info('Info here')
 
         f = open("output.txt", encoding = 'utf-8')
         file_name = st.text_input('Name your file', "filename.txt")

@@ -28,7 +28,7 @@ def show_page():
 
     st.title('CosmΩracle')
     st.markdown('Hello and welcome to CosmΩracle!')
-    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of cosmologically relevant distances - choose the "Cosmolological distances" option in the sidebar, fill the values of cosmological parameters and press enter. Note that the default cosmology is already set.')
+    st.markdown('CosmΩracle is an app that calculates distances in cosmology. If you wish to compute the values of cosmologically relevant distances - choose the "Cosmolological distances" option in the sidebar, fill the values of cosmological parameters and press enter. Note that the default cosmology is already set.')
     st.markdown('CosmΩracle can also plot those distances as a function of redshift. In case you want to plot it yourself - you can easily download the data in a .txt format.')
     
     my_expander = st.expander(label='Click here for demo')

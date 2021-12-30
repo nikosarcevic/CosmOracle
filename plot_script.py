@@ -223,9 +223,6 @@ def plot_comoving_volume_log(plot_VCz, z_array, VCz_array, width, height):
         return fig
 
 
-
-
-
 def plot_lookback_time_lin(plot_tlz, z_array, tlz_array, width, height):
         
         '''
@@ -271,14 +268,14 @@ def plot_lookback_time_lin(plot_tlz, z_array, tlz_array, width, height):
         frame.set_edgecolor(colors['white'])
 
         ax.set_xlabel('Redshift', size=15)
-        ax.set_ylabel('Lookbck Time [$\mathrm{Gyr}$]', size=15)
+        ax.set_ylabel('Lookback Time [$\mathrm{Gyr}$]', size=15)
         
         return fig
 
-def plot_comoving_volume_log(plot_tlz, z_array, tlz_array, width, height):
+def plot_lookback_time_log(plot_tlz, z_array, tlz_array, width, height):
         
         '''
-        Plot the calculated lookback as a function of redshift in a semi-log scale.
+        Plot the calculated lookback time as a function of redshift in a semi-log scale.
         '''
         
         fig, ax = plt.subplots(figsize=(width, height))
@@ -310,7 +307,7 @@ def plot_comoving_volume_log(plot_tlz, z_array, tlz_array, width, height):
         fig.patch.set_facecolor(colors['white'])
    
         if plot_tlz:
-            ax.plot(z_array, tlz_array, label='Lookbck', color=colors['gray'], ls='-', lw=3)
+            ax.plot(z_array, tlz_array, label='Lookback Time', color=colors['gray'], ls='-', lw=3)
         
 
         legend = plt.legend(frameon = 1)

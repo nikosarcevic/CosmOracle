@@ -98,6 +98,8 @@ def show_page():
                 height = st.slider("plot height", 1, 25, 5)
 
                 log_checkbox = st.checkbox('Switch to semi-log scale')
+                
+                st.write(" ")
 
                 plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
                 if log_checkbox:
@@ -105,7 +107,6 @@ def show_page():
 
                 st.pyplot(plot)
                 
-            st.write(" ")
             
             if plot_tlz:
                 
@@ -113,6 +114,8 @@ def show_page():
                 height = st.slider("plot height", 1, 25, 5)
 
                 log_checkbox = st.checkbox('Switch to semi-log scale')
+                
+                st.write(" ")
 
                 plot = ps.plot_lookback_time_lin(plot_tlz, z_array, tlz_array, width, height)
                 if log_checkbox:

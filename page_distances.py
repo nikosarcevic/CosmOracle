@@ -94,7 +94,12 @@ def show_page():
             width = st.slider("plot width", 1, 25, 10)
             height = st.slider("plot height", 1, 25, 5)
             
+            log_checkbox = st.checkbox('Switch to semi-log scale')
+            
             plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
+            if log_checkbox:
+                plot = ps.plot_comoving_volume_log(plot_VCz, z_array, VCz_array, width, height)
+            
             st.pyplot(plot)
             
         st.write(" ")

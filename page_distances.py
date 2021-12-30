@@ -89,23 +89,23 @@ def show_page():
         
         st.write(" ")
         
-        my_expander = st.expander(label='Expand me')
+        my_expander = st.expander(label='Click for more plots')
         with my_expander:
             'Hello there!'
             clicked = st.button('Click me!')
 
-        if plot_VCz:
-            
-            width = st.slider("plot width", 1, 25, 10)
-            height = st.slider("plot height", 1, 25, 5)
-            
-            log_checkbox = st.checkbox('Switch to semi-log scale')
-            
-            plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
-            if log_checkbox:
-                plot = ps.plot_comoving_volume_log(plot_VCz, z_array, VCz_array, width, height)
-            
-            st.pyplot(plot)
+            if plot_VCz:
+
+                width = st.slider("plot width", 1, 25, 10)
+                height = st.slider("plot height", 1, 25, 5)
+
+                log_checkbox = st.checkbox('Switch to semi-log scale')
+
+                plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
+                if log_checkbox:
+                    plot = ps.plot_comoving_volume_log(plot_VCz, z_array, VCz_array, width, height)
+
+                st.pyplot(plot)
             
         st.write(" ")
 

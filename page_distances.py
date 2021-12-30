@@ -67,8 +67,6 @@ def show_page():
         plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
         plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
         
-        
-    
         st.write(" ")
 
         if plot_rz or plot_trz or plot_DLz or plot_DAz:
@@ -104,6 +102,21 @@ def show_page():
                 plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
                 if log_checkbox:
                     plot = ps.plot_comoving_volume_log(plot_VCz, z_array, VCz_array, width, height)
+
+                st.pyplot(plot)
+                
+            st.write(" ")
+            
+            if plot_tlz:
+                
+                width = st.slider("plot width", 1, 25, 10)
+                height = st.slider("plot height", 1, 25, 5)
+
+                log_checkbox = st.checkbox('Switch to semi-log scale')
+
+                plot = ps.plot_lookback_time_lin(plot_tlz, z_array, tlz_array, width, height)
+                if log_checkbox:
+                    plot = ps.plot_lookback_time_log(plot_tlz, z_array, tlz_array, width, height)
 
                 st.pyplot(plot)
             

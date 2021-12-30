@@ -50,5 +50,6 @@ def show_page():
 
     st.title('References')
     st.markdown('D. Hogg, *Distance Measures in Cosmology*, 2000 [astro-ph/9905116v4](https://arxiv.org/abs/astro-ph/9905116)')
+    st.markdown('E. V. Linder, *Exploring the Expansion History of the Universe*, 2002 [astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512)')
     return
 

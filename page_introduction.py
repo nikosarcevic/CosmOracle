@@ -28,8 +28,8 @@ def show_page():
 
     st.title('CosmΩracle')
     st.markdown('Hello and welcome to CosmΩracle!')
-    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. Note that the default cosmology is already set.')
-    st.markdown('CosmΩracle will also plot those distances as a function of redshift. In case you want to plot it yourself - you can easily download the data in a .txt format.')
+    st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of cosmologically relevant distances - choose the "Cosmolological distances" option in the sidebar, fill the values of cosmological parameters and press enter. Note that the default cosmology is already set.')
+    st.markdown('CosmΩracle can also plot those distances as a function of redshift. In case you want to plot it yourself - you can easily download the data in a .txt format.')
     
     my_expander = st.expander(label='Click here for demo')
     with my_expander:
@@ -39,7 +39,7 @@ def show_page():
 
     st.title("About")
     st.markdown('CosmΩracle app is created and maintained by [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar).') 
-    st.markdown('If you like this app please star its [**GitHub**](https://github.com/nikosarcevic/CosmOracle/) repo, share it and feel free to open an issue if you find a bug or if you want some additional features.')
+    st.markdown('If you like this app please star its [**GitHub repo**](https://github.com/nikosarcevic/CosmOracle/), share it and feel free to open an issue if you find a bug or if you want some additional features.')
 
 
     st.title('Cite')

@@ -70,11 +70,11 @@ def show_page():
         st.write(" ")
 
         if plot_rz or plot_trz or plot_DLz or plot_DAz:
-        
-            log_checkbox = st.checkbox('Semi-log scale')
             
             width = st.slider("plot width", 1, 25, 10)
             height = st.slider("plot height", 1, 25, 5)
+            
+            log_checkbox = st.checkbox('Switch to semi-log scale')
         
             plot = ps.plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
             if log_checkbox:

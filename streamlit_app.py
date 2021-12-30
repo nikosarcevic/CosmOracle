@@ -16,7 +16,6 @@ import matplotlib.pyplot as plt
 import plot_script as ps
 import page_introduction as pi
 import page_distances as pd
-import page_documentation as docs
 
 # Page settings
 
@@ -33,8 +32,7 @@ st.sidebar.write(" ")
 
 pages = {
         "Introduction": pi,
-        "Cosmological Distances": pd,
-        "Definitions": docs
+        "Cosmological Distances": pd
     }
 
 

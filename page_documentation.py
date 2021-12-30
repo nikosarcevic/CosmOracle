@@ -69,9 +69,9 @@ def show_page():
     st.markdown("The distance between two comoving objects, at equal redshift but separated by an angle _δθ_, in the sky is _D_<sub>M</sub>_δθ_. The quantity _D_<sub>M</sub> is the transverse comoving distance, which can be expressed in terms of the comoving distance _D_<sub>C</sub>:",unsafe_allow_html=True)
     st.latex(r'''D_{\rm M} = D_{\rm C} 
                             \begin{cases}
-                            \frac{\sinh\left(\sqrt{\Omega_k}\frac{cD_{\rm C}}{H_0}\right)}{ \sqrt{\Omega_k}\frac{cD_{\rm C}}{H_0}} & \text{ for } \Omega_k > 0,\\
+                            \frac{\sinh\left(\sqrt{\Omega_k}\frac{H_0D_{\rm C}}{c}\right)}{ \sqrt{\Omega_k}\frac{H_0D_{\rm C}}{c}} & \text{ for } \Omega_k > 0,\\
                             1 & \text{ for } \Omega_k = 0,\\
-                            \frac{\sin\left(\sqrt{\vert\Omega_k\vert}\frac{cD_{\rm C}}{H_0}\right)}{ \sqrt{\vert\Omega_k\vert}\frac{cD_{\rm C}}{H_0}} & \text{ for } \Omega_k < 0.
+                            \frac{\sin\left(\sqrt{\vert\Omega_k\vert}\frac{H_0D_{\rm C}}{c}\right)}{ \sqrt{\vert\Omega_k\vert}\frac{H_0D_{\rm C}}{c}} & \text{ for } \Omega_k < 0.
                             \end{cases}''')
     st.markdown("The trigonometric functions account for the different spatial geometries.")
 

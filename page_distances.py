@@ -128,7 +128,7 @@ def show_page():
 
         f = open("output.txt", encoding = 'utf-8')
         file_name = st.text_input('Name your file', "filename.txt")
-        st.download_button('Download text file', f, file_name = file_name)
+        st.download_button('Download calculated data as a text file', f, file_name = file_name)
     else:
         st.title(section_title)
         st.write('Enter the value of redshift and cosmological parameters in the sidebar and press enter.')

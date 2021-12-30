@@ -66,6 +66,9 @@ def show_page():
         plot_trz = st.checkbox('Plot Transverse Comoving Distance Dm')
         plot_DLz = st.checkbox('Plot Luminosity Distance Dl')
         plot_DAz = st.checkbox('Plot Angular Diameter Distance Da')
+        
+        plot_VCz = st.checkbox('Plot Comoving Volume Vc')
+        plot_tlz = st.checkbox('Plot Lookback Time tl')
     
         st.write(" ")
 
@@ -85,6 +88,15 @@ def show_page():
             st.pyplot(plot)
         
         st.write(" ")
+        
+        if plot_VCz:
+            
+            width = st.slider("plot width", 1, 25, 10)
+            height = st.slider("plot height", 1, 25, 5)
+            
+            plot = ps.plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height)
+            st.pyplot(plot)
+            
         st.write(" ")
 
         f = open("output.txt", encoding = 'utf-8')

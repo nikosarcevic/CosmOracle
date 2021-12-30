@@ -89,6 +89,11 @@ def show_page():
         
         st.write(" ")
         
+        my_expander = st.expander(label='Expand me')
+        with my_expander:
+            'Hello there!'
+            clicked = st.button('Click me!')
+
         if plot_VCz:
             
             width = st.slider("plot width", 1, 25, 10)

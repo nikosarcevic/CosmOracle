@@ -26,7 +26,7 @@ def show_page():
 
 
 
-    st.title('CosmΩracle')
+    st.title('Definitions of quantities')
     st.markdown('Hello and welcome to CosmΩracle!')
     st.markdown('Computing distances in cosmology is not straightforward. If you wish to compute the values of the comoving distance, luminosity distance or angular diameter distance - just enter the values of cosmological parameters in the sidebar and press enter. Note that the default cosmology is already set.')
     st.markdown('CosmΩracle will also plot those distances as a function of redshift. In case you want to plot it yourself - you can easily download the data in a .txt format.')

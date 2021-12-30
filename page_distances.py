@@ -125,9 +125,9 @@ def show_page():
             
         st.write(" ")
 
-        st.title('Download calculated data as a text file')
+        st.header('Download calculated data as a text file')
         f = open("output.txt", encoding = 'utf-8')
-        file_name = st.text_input('', "filename.txt")
+        file_name = st.text_input('Name the file', "filename.txt")
         st.download_button('Click to download', f, file_name = file_name)
     else:
         st.title(section_title)

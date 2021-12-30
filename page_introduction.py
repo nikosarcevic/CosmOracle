@@ -43,6 +43,9 @@ def show_page():
 
 
     st.title('Cite')
+    st.markdown('CosmoΩracle is registered on Zenodo. If you use this calculator while preparing a paper, please use this DOI code to cite our work.')
+    
+    st.markdown('[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5810814.svg)](https://doi.org/10.5281/zenodo.5810814)')
 
 
     st.title('References')

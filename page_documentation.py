@@ -61,7 +61,7 @@ def show_page():
     st
     st.latex(r'''E(z) = \sqrt{ \Omega_r(1+z)^4 + \Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda(1+z)^{3(1+w_0+w_a)}e^{-3w_a z/(1+z)},}''')
     st.markdown("in terms of which the comoving distance can be expressed as")
-    st.latex(r'''D_{\rm C} = \frac{c}{H_0} \int_0^z\frac{{\rm d}\zeta}{E(\zeta)}.''')
+    st.latex(r'''D_{\rm C} = \frac{c}{H_0} \int_0^z\frac{{\rm d}z'}{E(z')}.''')
     st.markdown("The (line-of-sight) comoving distance is the fundamental distance measure in cosmology, as all others are derived from it.")
 
     st.subheader("Transverse comoving distance")
@@ -92,16 +92,16 @@ def show_page():
     st.subheader("Lookback time")
     st.markdown("The lookback time _t_<sub>L</sub> to an object is the time difference between the moment in which a photon is emitted by this object and the moment in which that photon is observed.", unsafe_allow_html=True)
     st.markdown("If the object of interest is located at redshift _z_ the lookback time can be computed in terms of the function _E(z)_ defined above via the relation")
-    st.latex(r'''t_{\rm L}(z) = H_0^{-1}\int_0^z\frac{{\rm d}\zeta}{(1+\zeta)E(\zeta)}.''')
+    st.latex(r'''t_{\rm L}(z) = H_0^{-1}\int_0^z\frac{{\rm d}z'}{(1+z')E(z')}.''')
 
 
     st.subheader("Comoving volume")
     st.markdown("The comoving volume _V_<sub>C</sub> is the volume measure in which the density of particles (e.g. galaxies) moving along the Hubble flow is constant with respect to the redshift. The exact form of the comoving volume depends on the geometry; integrated over the whole sky up to redshift _z_, it has the following forms:",unsafe_allow_html=True)
     st.latex(r'''V_{\rm C} = \frac{4\pi}{3}
              \begin{cases}
-                \frac{3}{2}\frac{c^2D_{\rm M}}{H_0^2\Omega_k}\left[\sqrt{1+\Omega_k\frac{cD_{\rm M}^2}{H_0}}-\vert\Omega_k\vert^{-1/2}\sinh^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{cD_{\rm M}}{H_0}\right)\right] & \text{for } \Omega_k > 0,\\ 
-                \left(\frac{c}{H_0}\right)^3 & \text{for }\Omega_k = 0,\\
-                \frac{3}{2}\frac{c^2D_{\rm M}}{H_0^2\Omega_k}\left[\sqrt{1+\Omega_k\frac{cD_{\rm M}^2}{H_0}}-\vert\Omega_k\vert^{-1/2}\sin^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{cD_{\rm M}}{H_0}\right)\right] & \text{for } \Omega_k > 0,\\ 
+                \frac{3}{2}\frac{c^3}{H_0^3\Omega_k}\left[\sqrt{1+\Omega_k\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_k\vert^{-1/2}\sinh^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{H_0D_{\rm M}}{c}\right)\right] & \text{for } \Omega_k > 0,\\ 
+                D_\mathrm{M}^3 & \text{for }\Omega_k = 0,\\
+                \frac{3}{2}\frac{c^3}{H_0^3\Omega_k}\left[\sqrt{1+\Omega_k\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_k\vert^{-1/2}\sin^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{H_0 D_{\rm M}}{c}\right)\right] & \text{for } \Omega_k < 0,\\ 
             \end{cases}''')
 
 

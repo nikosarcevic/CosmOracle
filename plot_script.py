@@ -118,7 +118,7 @@ def plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array,
         return fig
 
 
-def plot_comoving_volume_lin(plot_VCz, z_array, rz_array, VCz_array, width, height):
+def plot_comoving_volume_lin(plot_VCz, z_array, VCz_array, width, height):
         
         '''
         Plot the calculated comoving volume as a function of redshift in a linear scale.

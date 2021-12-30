@@ -94,10 +94,10 @@ def show_page():
 
             if plot_VCz:
 
-                width = st.slider("plot width", 1, 25, 10)
-                height = st.slider("plot height", 1, 25, 5)
+                width = st.slider("Plot width Vcz", 1, 25, 10)
+                height = st.slider("lot height Vcz", 1, 25, 5)
 
-                log_checkbox = st.checkbox('Switch to semi-log scale')
+                log_checkbox = st.checkbox('Switch to semi-log scale Vcz')
                 
                 st.write(" ")
 
@@ -110,10 +110,10 @@ def show_page():
             
             if plot_tlz:
                 
-                width = st.slider("plot width", 1, 25, 10)
-                height = st.slider("plot height", 1, 25, 5)
+                width = st.slider("Plot width tlz", 1, 25, 10)
+                height = st.slider("Plot height tlz", 1, 25, 5)
 
-                log_checkbox = st.checkbox('Switch to semi-log scale')
+                log_checkbox = st.checkbox('Switch to semi-log scale tlz')
                 
                 st.write(" ")
 

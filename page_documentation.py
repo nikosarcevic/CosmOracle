@@ -40,6 +40,7 @@ def show_page():
     st.subheader("Hubble constant H₀")
     st.markdown("The Hubble parameter _H₀_ quantifies the relative expansion of space. It is computed from the scale factor _a_ and its time derivative via the relation")
     st.latex(r'''H = \frac{\dot{a}}{a}.''')
+    st.markdown("The parameter _H₀_ parametrises the value of the Hubble parameter in the current epoch.")
 
     st.subheader("Energy density")
     st.markdown("The evolution of the scale factor is driven by the energy density of the matter content of the Universe. The dimensionless matter density Ω<sub>M</sub>, photon density Ω<sub>R</sub> and dark energy density Ω<sub>DE</sub> parametrise energy contents of baryonic matter, radiation and dark energy, respectively. A curvature density parameter Ω<sub>K</sub> is defined through the relation", unsafe_allow_html=True)

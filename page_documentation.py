@@ -101,7 +101,7 @@ def show_page():
              \begin{cases}
                 \frac{3}{2}\frac{c^3}{H_0^3\Omega_k}\left[\sqrt{1+\Omega_k\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_k\vert^{-1/2}\sinh^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{H_0D_{\rm M}}{c}\right)\right] & \text{for } \Omega_k > 0,\\ 
                 D_\mathrm{M}^3 & \text{for }\Omega_k = 0,\\
-                \frac{3}{2}\frac{c^3}{H_0^3\Omega_k}\left[\sqrt{1+\Omega_k\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_k\vert^{-1/2}\sin^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{H_0 D_{\rm M}}{c}\right)\right] & \text{for } \Omega_k < 0,\\ 
+                \frac{3}{2}\frac{c^3}{H_0^3\Omega_k}\left[\sqrt{1+\Omega_k\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_k\vert^{-1/2}\sin^{-1}\left(\vert\Omega_k\vert^{1/2}\frac{H_0 D_{\rm M}}{c}\right)\right] & \text{for } \Omega_k < 0.\\ 
             \end{cases}''')
 
 

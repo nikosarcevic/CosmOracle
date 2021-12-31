@@ -4,6 +4,9 @@
 
 # CosmΩracle
 
+
+[![Continuous Integration](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml)
+
 =====================
 
 

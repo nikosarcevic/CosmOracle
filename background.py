@@ -241,3 +241,21 @@ def hubble_distance(H0=constants['Hubble0']):
     DH = c/H0
     
     return DH
+
+def proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                      ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                      w0=constants['w0'], wa=constants['wa']):
+    '''
+    Computes the spatial separation of a distant object
+
+    Args: 
+    angular separation θ, 
+    redshift z, 
+    Hubble constant H0, 
+    energy densities ΩM, ΩDE, ΩR
+    EOS parameters w0, wa
+
+    Returns: spatial separation in kpc
+    '''
+
+    return 1e-3 * np.tan(θ) * angular_diameter_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)

@@ -50,7 +50,7 @@ def show_page():
 
     st.markdown("The Friedmann equations can only be solved once an equation of state has been imposed. The equation of state relates the energy density and pressure of a given component of the total mass density of the Universe.")
     st.markdown("In order to model the accelerated expansion of the Universe it is convenient to allow the equation of state parameter _w_ to evolve over the course of the Universe's expansion history. A convenient parametrisation in terms of two new parameters _w_₀ and _w_ₐ is")
-    st.latex(r'''w(z) = w_0 + w_a\frac{z}{1-z}.''')
+    st.latex(r'''w(z) = w_0 + w_a\frac{z}{1+z}.''')
 
     st.header("Distance measures")
 

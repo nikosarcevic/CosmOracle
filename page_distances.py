@@ -111,8 +111,8 @@ def show_page():
             
             if plot_tlz:
                 
-                width = st.slider("Plot width tlz", 1, 25, 10)
-                height = st.slider("Plot height tlz", 1, 25, 5)
+                width = st.slider("Plot width tl(z)", 1, 25, 10)
+                height = st.slider("Plot height tl(z)", 1, 25, 5)
 
                 log_checkbox = st.checkbox('Switch to semi-log scale tl(z)')
                 

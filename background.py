@@ -258,4 +258,4 @@ def proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-dens
     Returns: spatial separation in kpc
     '''
 
-    return 1e-3 * np.tan(θ) * angular_diameter_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
+    return 1e3 * np.tan(θ) * angular_diameter_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)

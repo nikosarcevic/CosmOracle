@@ -16,4 +16,4 @@
 
 This is the source code repository for CosmoOracle -- a calculator for quantities in cosmology.
 
-URL: https://share.streamlit.io/nikosarcevic/cosmoracle/main
+URL: https://www.cosmoracle.com

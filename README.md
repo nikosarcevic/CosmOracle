@@ -1,6 +1,4 @@
-<p align="center">
-<img width="400px" src="https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png"/>
-</p>
+![CosmOracle logo]("https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png")
 
 # CosmΩracle
 
@@ -13,7 +11,7 @@ Consult CosmΩracle at [www.cosmoracle.com](https://www.cosmoracle.com).
 
 ---
 
-CosmΩracle aims to be a useful computing aid for people who have a desire to know the structure of the universe, and who need their needs to be met anywhere, anytime.
+CosmΩracle aims to be a useful computing aid for people who have a need to know the structure of the universe, and who need this need to be met anywhere, anytime.
 
 Currently, CosmΩracle supports the following features:
 
@@ -37,7 +35,7 @@ Once CosmΩracle has the parameters of your preferred cosmology, you have the op
 Simply tick the boxes of the distance measure of your choice.
 You can set the size of the plot, and CosmΩracle even has the option to plot on a semi-log scale if that is more to your liking!
 
-In addition to the distance measures, CosmΩracle also supports plotting associated quantities (currently the comoving volume and lookback time).
+In addition to the distance measures, CosmΩracle also supports the plotting of associated quantities (currently the comoving volume and lookback time).
 To do so, click the dropdown menu below the distance measure plots, and select your quantity of interest.
 
 **But wait; there's more!** In addition to plotting the data directly in CosmΩracle, you can export the data to a text file, to be used at your leisure. 
@@ -45,10 +43,10 @@ To export the data, go to the bottom of the page, insert your preferred filename
 
 ## Definitions of quantities
 
-Confused about what is meant by the luminosity distance? 
+Confused about what CosmΩracle considers to be the luminosity distance? 
 Wondering about the difference between the comoving distance and the transverse comoving distance?
 Fear not, because CosmΩracle has a list of definitions for each and every one of the quantities that it computes. 
-Simply select the *Definitions* button in the sidebar and all definitions will be delivered to you in the convenience of your screen.
+Simply select the *Definitions* button in the sidebar and all definitions will be delivered straight to your screen!
 
 # Contribute
 

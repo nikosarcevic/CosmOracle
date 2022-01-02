@@ -12,6 +12,7 @@ Consult CosmΩracle at [www.cosmoracle.com](https://www.cosmoracle.com).
 ---
 
 CosmΩracle aims to be a useful computing aid for people who have a need to know the structure of the universe, and who need this need to be met anywhere, anytime.
+The app is responsive and works well on desktop, tablet and smartphone.
 
 Currently, CosmΩracle supports the following features:
 

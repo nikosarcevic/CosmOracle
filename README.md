@@ -1,4 +1,4 @@
-![CosmOracle logo]("https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png")
+![CosmOracle logo](https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png)
 
 # CosmΩracle
 

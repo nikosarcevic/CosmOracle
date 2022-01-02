@@ -11,52 +11,10 @@ Created December 2021
 import numpy as np
 import streamlit as st
 from scipy import integrate
-import background as bg
+#import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
-from dataclasses import dataclass
-
-@dataclass
-class distanceParms:
-    """
-    Class that computes distance measures from the given input parameters.
-    """
-
-    redshift: float
-    H0: float
-    ΩM: float
-    ΩDE: float
-    ΩR: float
-    w0: float
-    wa: float
-
-    def comovingDistance(self) -> float:
-        return bg.comoving_distance(self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                    self.ΩR, self.w0, self.wa)
-
-    def transverseComovingDistance(self) -> float:
-        return bg.transverse_comoving_distance(self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                    self.ΩR, self.w0, self.wa)
-
-    def angularDiameterDistance(self) -> float:
-        return bg.angular_diameter_distance(self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                    self.ΩR, self.w0, self.wa)
-
-    def luminosityDistance(self) -> float:
-        return bg.luminosity_distance(self.redshift, self.H0, self.ΩM, self.ΩDE,
-                                      self.ΩR, self.w0, self.wa)
-
-    def comovingVolume(self) -> float:
-        return 1e-9*bg.comoving_volume(self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                       self.ΩR, self.w0, self.wa)
-    
-    def properSeparation(self) -> float:
-        return bg.proper_separation(180/3600/np.pi, self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                    self.ΩR, self.w0, self.wa)
-
-    def lookbackTime(self) -> float:
-        return bg.lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
-                                self.ΩR, self.w0, self.wa)
+import classes
 
 def show_page():
 
@@ -83,7 +41,7 @@ def show_page():
 
     if z_value:
 
-        inputParms = distanceParms(float(z_value), float(H0_value), float(ΩM_value), 
+        inputParms = classes.distanceParms(float(z_value), float(H0_value), float(ΩM_value), 
                                    float(ΩDE_value), float(ΩR_value), float(w0_value), float(wa_value))
 
         st.title('Results')
@@ -104,7 +62,7 @@ def show_page():
         
         z_array = np.linspace(0, inputParms.redshift, 300)
 
-        inputParmsPlot = distanceParms(z_array, float(H0_value), float(ΩM_value), float(ΩDE_value), 
+        inputParmsPlot = classes.distanceParms(z_array, float(H0_value), float(ΩM_value), float(ΩDE_value), 
                                        float(ΩR_value), float(w0_value), float(wa_value))
 
         rz_array = inputParmsPlot.comovingDistance()

@@ -12,4 +12,4 @@ class ComovingVolumeTest(unittest.TestCase):
         self.assertAlmostEqual(1e-9*result, 166.3466, delta=0.1)
     def test_redshift_negative(self):
         data = -1.
-        self.assertRaises(TypeError, bg.get_comoving_volume, data)
+        self.assertRaises(ValueError, bg.get_comoving_volume, data)

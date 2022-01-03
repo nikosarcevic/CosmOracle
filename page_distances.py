@@ -44,6 +44,7 @@ def show_page():
                                      float(ΩR_value), float(w0_value), float(wa_value))
 
         st.title('Results')
+
         st.write('Comoving distance at redshift', str(inputParms.redshift), 'is:', 
                  str(round(inputParms.comoving_distance, sig_digits)), 'Mpc')
         st.write('Transverse comoving distance at redshift', str(inputParms.redshift), 'is:', 
@@ -114,8 +115,8 @@ def show_page():
 
             if plot_VCz:
 
-                width = st.slider("Plot width Vcz", 1, 25, 10)
-                height = st.slider("lot height Vcz", 1, 25, 5)
+                width = st.slider("Plot width Vc(z)", 1, 25, 10)
+                height = st.slider("Plot height Vc(z)", 1, 25, 5)
 
                 log_checkbox = st.checkbox('Switch to semi-log scale Vc(z)')
                 
@@ -138,8 +139,8 @@ def show_page():
             
             if plot_tlz:
                 
-                width = st.slider("Plot width tlz", 1, 25, 10)
-                height = st.slider("Plot height tlz", 1, 25, 5)
+                width = st.slider("Plot width tl(z)", 1, 25, 10)
+                height = st.slider("Plot height tl(z)", 1, 25, 5)
 
                 log_checkbox = st.checkbox('Switch to semi-log scale tl(z)')
                 

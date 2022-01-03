@@ -4,6 +4,7 @@
 
 
 [![Continuous Integration](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml)
+[![codecov.io](https://codecov.io/github/nikosarcevic/CosmOracle/coverage.svg?branch=add_badge)](https://codecov.io/github/nikosarcevic/CosmOracle?branch=add_badge)
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/nikosarcevic/cosmoracle/main)
 [![DOI](https://zenodo.org/badge/440653118.svg)](https://zenodo.org/badge/latestdoi/440653118)
 

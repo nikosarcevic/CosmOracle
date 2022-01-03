@@ -11,10 +11,9 @@ Created December 2021
 import numpy as np
 import streamlit as st
 from scipy import integrate
-#import background as bg
+import background as bg
 import matplotlib.pyplot as plt
 import plot_script as ps
-import classes
 
 def show_page():
 
@@ -41,44 +40,44 @@ def show_page():
 
     if z_value:
 
-        inputParms = classes.distanceParms(float(z_value), float(H0_value), float(ΩM_value), 
-                                   float(ΩDE_value), float(ΩR_value), float(w0_value), float(wa_value))
+        inputParms = bg.distanceData(float(z_value), float(H0_value), float(ΩM_value), float(ΩDE_value),
+                                     float(ΩR_value), float(w0_value), float(wa_value))
 
         st.title('Results')
         st.write('Comoving distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.comovingDistance(), sig_digits)), 'Mpc')
+                 str(round(inputParms.comoving_distance, sig_digits)), 'Mpc')
         st.write('Transverse comoving distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.transverseComovingDistance(), sig_digits)), 'Mpc')
+                 str(round(inputParms.transverse_comoving_distance, sig_digits)), 'Mpc')
         st.write('Luminosity distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.luminosityDistance(), sig_digits)), 'Mpc')
+                 str(round(inputParms.luminosity_distance, sig_digits)), 'Mpc')
         st.write('Angular diameter distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.angularDiameterDistance(), sig_digits)), 'Mpc')
+                 str(round(inputParms.angular_diameter_distance, sig_digits)), 'Mpc')
         st.write('An object spanning an angle of 1 arcsec at redshift', str(inputParms.redshift), 'is therefore', 
-                 str(round(inputParms.properSeparation(), sig_digits)), 'kpc across.')
+                 str(round(inputParms.proper_separation, sig_digits)), 'kpc across.')
         st.write('Comoving volume at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.comovingVolume(), sig_digits)), 'Gpc³')
+                 str(round(inputParms.comoving_volume, sig_digits)), 'Gpc³')
         st.write('Lookback time at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.lookbackTime(), sig_digits)), 'Gyrs')
+                 str(round(inputParms.lookback_time, sig_digits)), 'Gyrs')
         
         z_array = np.linspace(0, inputParms.redshift, 300)
 
-        inputParmsPlot = classes.distanceParms(z_array, float(H0_value), float(ΩM_value), float(ΩDE_value), 
-                                       float(ΩR_value), float(w0_value), float(wa_value))
+        inputParmsPlot = bg.distanceData(z_array, inputParms.H0, inputParms.ΩM, inputParms.ΩDE, 
+                                         inputParms.ΩR, inputParms.w0, inputParms.wa)
 
-        rz_array = inputParmsPlot.comovingDistance()
-        trz_array = inputParmsPlot.transverseComovingDistance()
-        DLz_array = inputParmsPlot.luminosityDistance()
-        DAz_array = inputParmsPlot.angularDiameterDistance()
-        VCz_array = inputParmsPlot.comovingVolume()
-        tlz_array = inputParmsPlot.lookbackTime()
+        rz_array = inputParmsPlot.comoving_distance
+        trz_array = inputParmsPlot.transverse_comoving_distance
+        DLz_array = inputParmsPlot.luminosity_distance
+        DAz_array = inputParmsPlot.angular_diameter_distance
+        VCz_array = inputParmsPlot.comoving_volume
+        tlz_array = inputParmsPlot.lookback_time
     
         stacked_array = np.vstack((inputParmsPlot.redshift, 
-                                   inputParmsPlot.comovingDistance(), 
-                                   inputParmsPlot.transverseComovingDistance(), 
-                                   inputParmsPlot.luminosityDistance(), 
-                                   inputParmsPlot.angularDiameterDistance(), 
-                                   inputParmsPlot.comovingVolume(), 
-                                   inputParmsPlot.lookbackTime())).T
+                                   inputParmsPlot.comoving_distance, 
+                                   inputParmsPlot.transverse_comoving_distance, 
+                                   inputParmsPlot.luminosity_distance, 
+                                   inputParmsPlot.angular_diameter_distance, 
+                                   inputParmsPlot.comoving_volume, 
+                                   inputParmsPlot.lookback_time)).T
         np.savetxt("output.txt", stacked_array, header='z,DCz [Mpc],DMz [Mpc],DLz [Mpc],DAz [Mpc],VCz [Gpc^3],tlz [Gyr]', delimiter=',', comments='')
     
         st.write(" ")
@@ -124,13 +123,13 @@ def show_page():
 
                 plot = ps.plot_comoving_volume_lin(plot_VCz, 
                                                    inputParmsPlot.redshift, 
-                                                   inputParmsPlot.comovingVolume(), 
+                                                   inputParmsPlot.comoving_volume, 
                                                    width, 
                                                    height)
                 if log_checkbox:
                     plot = ps.plot_comoving_volume_log(plot_VCz, 
                                                        inputParmsPlot.redshift,
-                                                       inputParmsPlot.comovingVolume(),
+                                                       inputParmsPlot.comoving_volume,
                                                        width, 
                                                        height)
 
@@ -148,13 +147,13 @@ def show_page():
 
                 plot = ps.plot_lookback_time_lin(plot_tlz, 
                                                  inputParmsPlot.redshift,
-                                                 inputParmsPlot.lookbackTime(), 
+                                                 inputParmsPlot.lookback_time, 
                                                  width, 
                                                  height)
                 if log_checkbox:
                     plot = ps.plot_lookback_time_log(plot_tlz, 
                                                      inputParmsPlot.redshift, 
-                                                     inputParmsPlot.lookbackTime(), 
+                                                     inputParmsPlot.lookback_time, 
                                                      width, 
                                                      height)
 

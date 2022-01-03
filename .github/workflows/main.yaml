@@ -20,7 +20,7 @@ jobs:
           architecture: x64
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt && pip install coverage && pip install coverage-badge
 
       - name: Run test
         run: coverage run -m unittest discover tests && coverage report

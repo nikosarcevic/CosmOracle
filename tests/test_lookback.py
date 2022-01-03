@@ -12,4 +12,4 @@ class LookbackTest(unittest.TestCase):
         self.assertAlmostEqual(result, 7.977, delta=0.1)
     def test_redshift_negative(self):
         data = -1.
-        self.assertRaises(TypeError, bg.get_lookback_time, data)
+        self.assertRaises(ValueError, bg.get_lookback_time, data)

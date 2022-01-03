@@ -2,12 +2,53 @@ import numpy as np
 import yaml
 
 from scipy import integrate
+from dataclasses import dataclass, field
 
 # Load all the default values / constants from YAML file
 with open("cosmology-constants.yaml", "r") as constantslist:
     constants = yaml.load(constantslist, Loader=yaml.FullLoader)
 
-def E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'], 
+@dataclass
+class distanceData:
+    """
+    Class that computes distance measures from the given input parameters.
+    """
+
+    redshift: float
+    H0: float = constants['Hubble0']
+    ΩM: float = constants['matter-density']
+    ΩDE: float = constants['DE-density']
+    ΩR: float = constants['rad-density']
+    w0: float = constants['w0']
+    wa: float = constants['wa']
+
+    comoving_distance: float = field(init = False)
+    transverse_comoving_distance: float = field(init = False)
+    angular_diameter_distance: float = field(init = False)
+    luminosity_distance: float = field(init = False)
+    comoving_volume: float = field(init = False)
+    lookback_time: float = field(init = False)
+    proper_separation: float = field(init = False)
+
+    def __post_init__(self):
+        self.comoving_distance = get_comoving_distance(self.redshift, self.H0, self.ΩM, self.ΩDE, 
+                                                  self.ΩR, self.w0, self.wa)
+        self.transverse_comoving_distance = get_transverse_comoving_distance(self.redshift, self.H0, 
+                                                                        self.ΩM, self.ΩDE, 
+                                                                        self.ΩR, self.w0, self.wa)
+        self.angular_diameter_distance = get_angular_diameter_distance(self.redshift, self.H0, self.ΩM, 
+                                                                  self.ΩDE, self.ΩR, self.w0, self.wa)
+        self.luminosity_distance = get_luminosity_distance(self.redshift, self.H0, self.ΩM, self.ΩDE,
+                                                      self.ΩR, self.w0, self.wa)
+        self.comoving_volume = 1e-9*get_comoving_volume(self.redshift, self.H0, self.ΩM, self.ΩDE, 
+                                                   self.ΩR, self.w0, self.wa)
+        self.proper_separation = get_proper_separation(180/3600/np.pi, self.redshift, self.H0, self.ΩM, 
+                                                  self.ΩDE, self.ΩR, self.w0, self.wa)
+        self.lookback_time = get_lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
+                                          self.ΩR, self.w0, self.wa)
+
+
+def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'], 
         ΩR=constants['rad-density'], w0=constants['w0'], wa=constants['wa']):
     """
     Method to compute the adimensional Hubble rate in the w0waCDm cosmology
@@ -21,9 +62,9 @@ def E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'],
     ΩK = 1-ΩM-ΩDE-ΩR
     return np.sqrt(ΩM*(1+z)**3+ΩR*(1+z)**4+ΩDE*(1+z)**(3*(1+w0+wa))*np.exp(-3*wa*z/(1+z))+ΩK*(1+z)**2)
 
-def H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
-        ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
-        w0=constants['w0'], wa=constants['wa']):
+def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
+            ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
+            w0=constants['w0'], wa=constants['wa']):
     """
     Method to compute the Hubble rate in the w0waCDm cosmology
     """
@@ -33,15 +74,15 @@ def H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     elif isinstance(z, np.ndarray):
         if any(t < 0 for t in z):
             raise ValueError("Enter a non-negative redshift.")
-    return H0*E_z(z, ΩM, ΩDE, ΩR, w0, wa)
+    return H0*get_E_z(z, ΩM, ΩDE, ΩR, w0, wa)
 
-def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
-                      ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
-                      w0=constants['w0'], wa=constants['wa']):
+def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
+                          ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
+                          w0=constants['w0'], wa=constants['wa']):
     """
     Method to compute the comoving distance
     """
-    integrand = lambda x: 1/E_z(x, ΩM, ΩDE, ΩR, w0, wa)
+    integrand = lambda x: 1/get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)
     if isinstance(z, float) or isinstance(z, int):
         if z < 0:
             raise ValueError("Enter a non-negative redshift.")
@@ -55,9 +96,9 @@ def comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     c0 = constants['speed-of-light']
     return c0/H0*result
 
-def transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                                 ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                                 w0=constants['w0'], wa=constants['wa']):
+def get_transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                                     ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                                     w0=constants['w0'], wa=constants['wa']):
     """
     Compute the transverse comoving distance
     """
@@ -67,7 +108,7 @@ def transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matt
     elif isinstance(z, np.ndarray):
         if any(t < 0 for t in z):
             raise ValueError("Enter a non-negative redshift.")
-    D_c = comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
+    D_c = get_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     ΩK = 1 - ΩM - ΩDE - ΩR
     c0 = constants['speed-of-light']
     x = np.sqrt(-ΩK + 0j) * D_c / (c0 / H0)
@@ -81,36 +122,36 @@ def transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matt
     #    D_m = D_c * np.sin(x) / x
     return D_m.real
 
-def angular_diameter_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                              w0=constants['w0'], wa=constants['wa']):
+def get_angular_diameter_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                                  ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                                  w0=constants['w0'], wa=constants['wa']):
     """
     Compute the angular diameter distance
     """
-    return transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) / (1 + z)
+    return get_transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) / (1 + z)
 
-def luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                              w0=constants['w0'], wa=constants['wa']):
+def get_luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                            ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                            w0=constants['w0'], wa=constants['wa']):
     
     '''
     Compute the angular diameter distance d_l
     '''
     
-    d_l = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) * (1 + z) 
+    d_l = get_transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) * (1 + z) 
     
     return d_l
 
-def comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                    ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                    w0=constants['w0'], wa=constants['wa']):
+def get_comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                        ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                        w0=constants['w0'], wa=constants['wa']):
 
     """
     Compute the comoving volume
     """
     
     c0 = constants['speed-of-light']
-    Dm = transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
+    Dm = get_transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     Dh = c0 / H0
     ΩK = round(1 - ΩM - ΩDE - ΩR, 7)
     # the rounding is necessary since the expression is quite sensitive to the Universe geometry and,
@@ -128,13 +169,13 @@ def hubble_time(H0=constants['Hubble0']):
     """
     return (9.78e2)/H0
 
-def lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                              ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                              w0=constants['w0'], wa=constants['wa']):
+def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                      ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                      w0=constants['w0'], wa=constants['wa']):
     """
     Method to compute the lookback time in Gyrs
     """
-    integrand = lambda x: 1/(E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
+    integrand = lambda x: 1/(get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
     if isinstance(z, float) or isinstance(z, int):
         if z < 0:
             raise ValueError("Enter a non-negative redshift.")
@@ -242,9 +283,9 @@ def hubble_distance(H0=constants['Hubble0']):
     
     return DH
 
-def proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                      ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                      w0=constants['w0'], wa=constants['wa']):
+def get_proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
+                          ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
+                          w0=constants['w0'], wa=constants['wa']):
     '''
     Computes the spatial separation of a distant object
 
@@ -258,4 +299,4 @@ def proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-dens
     Returns: spatial separation in kpc
     '''
 
-    return 1e3 * np.tan(θ) * angular_diameter_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
+    return 1e3 * np.tan(θ) * get_angular_diameter_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)

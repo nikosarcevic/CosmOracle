@@ -12,4 +12,4 @@ class AngularDistanceTest(unittest.TestCase):
         self.assertAlmostEqual(result, 1705.8666, delta=0.1)
     def test_redshift_negative(self):
         data = -1.
-        self.assertRaises(TypeError, bg.get_angular_diameter_distance, data)
+        self.assertRaises(ValueError, bg.get_angular_diameter_distance, data)

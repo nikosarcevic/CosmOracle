@@ -12,4 +12,4 @@ class Transverse_CDistance(unittest.TestCase):
         self.assertAlmostEqual(result, 3411.733, delta=0.1)
     def test_cdistance_negative(self):
         data = -1.
-        self.assertRaises(TypeError, bg.get_transverse_comoving_distance, data)
+        self.assertRaises(ValueError, bg.get_transverse_comoving_distance, data)

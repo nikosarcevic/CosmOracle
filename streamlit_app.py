@@ -7,17 +7,12 @@ Created December 2021
 [Matthijs van der Wild](https://github.com/lonbar)
 """
 
-# %%
 import streamlit as st
+from helpers import read_markdown
+
 import page_introduction as pi
 import page_distances as pd
 import page_documentation as doc
-
-import numpy as np
-from scipy import integrate
-import background as bg
-import matplotlib.pyplot as plt
-import plot_script as ps
 
 
 # Page settings
@@ -47,13 +42,5 @@ page = st.sidebar.radio("", tuple(pages.keys()))
 pages[page].show_page()
         
 # About
-st.sidebar.header("About")
-st.sidebar.markdown(
-                """
-                CosmΩracle app is created and maintained by 
-                [**Marco Bonici**](https://github.com/marcobonici), [**Niko Sarcevic**](https://github.com/nikosarcevic) and [**Matthijs van der Wild**](https://github.com/lonbar). If you like this app please star its
-                [**GitHub**](https://github.com/nikosarcevic/CosmoCompute/)
-                repo, share it and feel free to open an issue if you find a bug 
-                or if you want some additional features.
-                """)
-    
+about = read_markdown("docs/markdown/about.md")
+st.sidebar.markdown(about)

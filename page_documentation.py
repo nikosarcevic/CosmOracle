@@ -19,6 +19,7 @@ def show_page():
     definitions = read_markdown("docs/markdown/definitions.md")
     st.markdown(definitions)
     
+
     st.header("Parameters")
 
     redshift = read_markdown("docs/markdown/redshift.md")
@@ -47,7 +48,9 @@ def show_page():
     st.markdown(equation_of_state)
     st.latex(fr'''{equation_of_state_eq}''')
 
+
     st.header("Distance measures")
+
 
     comoving_distance = read_markdown("docs/markdown/comoving_distance.md")
     comoving_distance_eq = read_eq("docs/equations/comoving_distance")
@@ -69,7 +72,9 @@ def show_page():
     st.markdown(angular_diameter_distance, unsafe_allow_html=True)
     st.latex(fr'''{angular_diameter_distance_eq}''')
 
+
     st.header("Associated quantities")
+
 
     lookback_time = read_markdown("docs/markdown/lookback_time.md")
     lookback_time_eq = read_eq("docs/equations/lookback_time")

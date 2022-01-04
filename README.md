@@ -1,8 +1,5 @@
 ![CosmOracle logo](https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName_nobg.png)
 
-# CosmΩracle
-
-
 [![Continuous Integration](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/nikosarcevic/CosmOracle/actions/workflows/main.yaml)
 [![codecov.io](https://codecov.io/github/nikosarcevic/CosmOracle/coverage.svg?branch=main)](https://codecov.io/github/nikosarcevic/CosmOracle?branch=main)
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/nikosarcevic/cosmoracle/main)

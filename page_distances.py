@@ -1,4 +1,3 @@
-# %%
 """
 CosmOracleApp
 Created December 2021
@@ -10,9 +9,7 @@ Created December 2021
 
 import numpy as np
 import streamlit as st
-#from scipy import integrate
 import background as bg
-#import matplotlib.pyplot as plt
 
 from helpers import plot_graph
 
@@ -126,8 +123,8 @@ def show_page():
                 
                 st.write(" ")
                 plot = plot_graph(width, height, z_array,
-                                  (plot_VCz, inputParmsPlot.comoving_volume, "Comoving Volume [Gpc³]"),
-                                  is_log = log_checkbox)
+                                  (plot_VCz, inputParmsPlot.comoving_volume, "Comoving Volume"),
+                                  axis_label = "Comoving volume [Gpc³]", is_log = log_checkbox)
 
                 st.pyplot(plot)
                 
@@ -142,8 +139,8 @@ def show_page():
                 st.write(" ")
 
                 plot = plot_graph(width, height, z_array, 
-                                  (plot_tlz, inputParmsPlot.lookback_time, "Lookback time [Gyr]"),
-                                  is_log = log_checkbox)
+                                  (plot_tlz, inputParmsPlot.lookback_time, "Lookback time"),
+                                  axis_label = "Lookback time [Gyr]", is_log = log_checkbox)
 
                 st.pyplot(plot)
             

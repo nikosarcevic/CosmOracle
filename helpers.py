@@ -9,7 +9,9 @@ def read_markdown(markdown_file):
 def read_eq(equation_file):
         return Path(equation_file).read_text()
 
-def plot_graph(width, height, redshifts, *args, is_log = False): 
+def plot_graph(width, height, 
+               redshifts, *args, 
+               axis_label = "Distance [Mpc]", is_log = False): 
     '''
     Plot the calculated distances as a function of redshift in a linear scale.
     '''
@@ -56,6 +58,6 @@ def plot_graph(width, height, redshifts, *args, is_log = False):
     if is_log:
         ax.set_yscale('log')
     ax.set_xlabel('Redshift', size=15)
-    ax.set_ylabel('Distance [Mpc]', size=15)
+    ax.set_ylabel(axis_label, size=15)
     
     return fig

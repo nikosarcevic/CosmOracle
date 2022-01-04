@@ -1,8 +1,4 @@
-# %%
-import numpy as np
 import matplotlib.pyplot as plt
-import yaml
-import streamlit as st
 
 def plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height):
         
@@ -326,12 +322,3 @@ def plot_lookback_time_log(plot_tlz, z_array, tlz_array, width, height):
         ax.tick_params(axis='y', colors=colors['orange'], width=1.5, which='both')
         
         return fig
-
-
-
-
-
-
-
-
-

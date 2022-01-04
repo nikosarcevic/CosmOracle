@@ -1,0 +1,6 @@
+V_{\rm C} = \frac{4\pi}{3}
+            \begin{cases}
+            	\frac{3}{2}\frac{c^3}{H_0^3\Omega_{\rm K}}\left[\sqrt{1+\Omega_{\rm K}\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_{\rm K}\vert^{-1/2}\sinh^{-1}\left(\vert\Omega_{\rm K}\vert^{1/2}\frac{H_0D_{\rm M}}{c}\right)\right] & \text{for } \Omega_{\rm K} > 0,\\ 
+                D_\mathrm{M}^3 & \text{for }\Omega_{\rm K} = 0,\\
+                \frac{3}{2}\frac{c^3}{H_0^3\Omega_{\rm K}}\left[\sqrt{1+\Omega_{\rm K}\left(\frac{H_0D_{\rm M}}{c}\right)^2}-\vert\Omega_{\rm K}\vert^{-1/2}\sin^{-1}\left(\vert\Omega_{\rm K}\vert^{1/2}\frac{H_0 D_{\rm M}}{c}\right)\right] & \text{for } \Omega_{\rm K} < 0.\\ 
+            \end{cases}

@@ -1,9 +1,4 @@
 # %%
-import numpy as np
-import scipy as sp
-import pandas as pd
-import matplotlib.pyplot as plt
-
 
 def m_to_pc(value):
     
@@ -161,6 +156,3 @@ def ly_to_mpc(value):
     dist_mpc = value / conv_fac
     
     return dist_mpc
-    
-    
-    

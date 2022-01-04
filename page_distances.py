@@ -10,10 +10,11 @@ Created December 2021
 
 import numpy as np
 import streamlit as st
-from scipy import integrate
+#from scipy import integrate
 import background as bg
-import matplotlib.pyplot as plt
-import plot_script as ps
+#import matplotlib.pyplot as plt
+
+from helpers import plot_graph
 
 def show_page():
 
@@ -99,9 +100,12 @@ def show_page():
             
             st.write(" ")
         
-            plot = ps.plot_distances_lin(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
-            if log_checkbox:
-                plot = ps.plot_distances_log(plot_rz, plot_trz, plot_DLz, plot_DAz, z_array, rz_array, trz_array, DLz_array, DAz_array, width, height)
+            plot = plot_graph(width, height, z_array, 
+                              (plot_rz, rz_array, "Comoving distance"), 
+                              (plot_trz, trz_array, "Transverse comoving distance"), 
+                              (plot_DLz, DLz_array, "Luminosity distance"), 
+                              (plot_DAz, DAz_array, "Angular diameter distance"), 
+                              is_log = log_checkbox)
       
             st.pyplot(plot)
         
@@ -121,18 +125,9 @@ def show_page():
                 log_checkbox = st.checkbox('Switch to semi-log scale Vc(z)')
                 
                 st.write(" ")
-
-                plot = ps.plot_comoving_volume_lin(plot_VCz, 
-                                                   inputParmsPlot.redshift, 
-                                                   inputParmsPlot.comoving_volume, 
-                                                   width, 
-                                                   height)
-                if log_checkbox:
-                    plot = ps.plot_comoving_volume_log(plot_VCz, 
-                                                       inputParmsPlot.redshift,
-                                                       inputParmsPlot.comoving_volume,
-                                                       width, 
-                                                       height)
+                plot = plot_graph(width, height, z_array,
+                                  (plot_VCz, inputParmsPlot.comoving_volume, "Comoving Volume [Gpc³]"),
+                                  is_log = log_checkbox)
 
                 st.pyplot(plot)
                 
@@ -146,17 +141,9 @@ def show_page():
                 
                 st.write(" ")
 
-                plot = ps.plot_lookback_time_lin(plot_tlz, 
-                                                 inputParmsPlot.redshift,
-                                                 inputParmsPlot.lookback_time, 
-                                                 width, 
-                                                 height)
-                if log_checkbox:
-                    plot = ps.plot_lookback_time_log(plot_tlz, 
-                                                     inputParmsPlot.redshift, 
-                                                     inputParmsPlot.lookback_time, 
-                                                     width, 
-                                                     height)
+                plot = plot_graph(width, height, z_array, 
+                                  (plot_tlz, inputParmsPlot.lookback_time, "Lookback time [Gyr]"),
+                                  is_log = log_checkbox)
 
                 st.pyplot(plot)
             

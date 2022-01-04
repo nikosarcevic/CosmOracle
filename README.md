@@ -25,6 +25,7 @@ Once you have input your referred set of parameters, CosmΩracle will compute:
 - the angular diameter distance,
 - the comoving volume,
 - the lookback time,
+
 all evaluated at the redshift of your choice.
 In addition, CosmΩracle will compute the physical size of an object spanning an angle of 1'' at your chosen redshift.
 

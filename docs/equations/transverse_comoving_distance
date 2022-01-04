@@ -1,0 +1,6 @@
+D_{\rm M} = D_{\rm C} 
+	    \begin{cases}
+	    	\frac{\sinh\left(\sqrt{\Omega_{\rm K}}\frac{H_0D_{\rm C}}{c}\right)}{ \sqrt{\Omega_{\rm K}}\frac{H_0D_{\rm C}}{c}} & \text{ for } \Omega_{\rm K} > 0,\\
+	    	1 & \text{ for } \Omega_{\rm K} = 0,\\
+	    	\frac{\sin\left(\sqrt{\vert\Omega_{\rm K}\vert}\frac{H_0D_{\rm C}}{c}\right)}{ \sqrt{\vert\Omega_{\rm K}\vert}\frac{H_0D_{\rm C}}{c}} & \text{ for } \Omega_{\rm K} < 0.
+	    \end{cases}

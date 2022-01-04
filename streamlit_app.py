@@ -8,17 +8,16 @@ Created December 2021
 """
 
 # %%
-import numpy as np
 import streamlit as st
-from scipy import integrate
-import background as bg
-import matplotlib.pyplot as plt
-import plot_script as ps
 import page_introduction as pi
 import page_distances as pd
 import page_documentation as doc
 
-
+import numpy as np
+from scipy import integrate
+import background as bg
+import matplotlib.pyplot as plt
+import plot_script as ps
 
 
 # Page settings
@@ -40,17 +39,10 @@ pages = {
         "Definitions": doc,
     }
 
-
-
 st.sidebar.title("Main options")
-
-
-
 
 # Radio buttons to select desired option
 page = st.sidebar.radio("", tuple(pages.keys()))
-#page = st.sidebar.selectbox('Page', tuple(pages.keys()))
-#page = st.sidebar.checkbox('Page', tuple(pages.keys()))
 
 pages[page].show_page()
         

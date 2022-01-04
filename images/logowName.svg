@@ -2,17 +2,35 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="21.000002mm"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="23mm"
    height="14.75mm"
-   viewBox="0 0 21.000002 14.75"
+   viewBox="0 0 23 14.75"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="logowName.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+   inkscape:export-filename="/home/tjlv53/CosmOracle/images/LogowName_white.png"
+   inkscape:export-xdpi="500"
+   inkscape:export-ydpi="500">
+  <metadata
+     id="metadata3888">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
@@ -29,12 +47,12 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="12.429181"
-     inkscape:cx="42.400219"
+     inkscape:cx="31.657475"
      inkscape:cy="28.964097"
-     inkscape:window-width="1920"
-     inkscape:window-height="1064"
-     inkscape:window-x="0"
-     inkscape:window-y="16"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -43,27 +61,19 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2"
-     transform="translate(-55.656611,-50.966385)" />
+     transform="translate(-54.65661,-50.966385)" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-55.656611,-50.966385)">
-    <rect
-       style="fill:#ffc345;fill-opacity:1;stroke:none;stroke-width:1.49581"
-       id="rect10810"
-       width="21"
-       height="14.75"
-       x="55.656612"
-       y="50.966385"
-       clip-path="none" />
+     transform="translate(-54.65661,-50.966385)">
     <g
        id="g10997"
        transform="matrix(0.99899782,0,0,1.0000371,2.457004,-6.2947643)"
        clip-path="none">
       <text
          xml:space="preserve"
-         style="font-size:10.5831px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264577"
+         style="font-size:10.58310032px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264577"
          x="59.811726"
          y="65.952286"
          id="text4323"
@@ -75,7 +85,7 @@
            y="65.952286">Ω</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:10.5665px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264164"
+         style="font-size:10.56649971px;line-height:1.25;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';letter-spacing:0px;fill:#333330;fill-opacity:1;stroke-width:0.264164"
          x="59.760651"
          y="66.343239"
          id="text8353"
@@ -88,15 +98,15 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.55207px;line-height:1.25;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';letter-spacing:0px;fill:#333333;fill-opacity:1;stroke-width:0.266406"
-       x="55.594826"
-       y="63.897411"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.50842404px;line-height:1.25;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';letter-spacing:0px;fill:#333333;fill-opacity:1;stroke-width:0.26313254"
+       x="54.783245"
+       y="63.638546"
        id="text809"
-       transform="scale(1.0068884,0.99315873)"><tspan
+       transform="scale(0.99451633,1.0055139)"><tspan
          sodipodi:role="line"
          id="tspan807"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.55207px;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';fill:#333333;fill-opacity:1;stroke-width:0.266406"
-         x="55.594826"
-         y="63.897411">CosmΩracle</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.50842404px;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';fill:#333333;fill-opacity:1;stroke-width:0.26313254"
+         x="54.783245"
+         y="63.638546">CosmΩracle</tspan></text>
   </g>
 </svg>

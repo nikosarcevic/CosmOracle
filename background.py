@@ -3,6 +3,7 @@ import yaml
 
 from scipy import integrate
 from dataclasses import dataclass, field
+import conversion_functions as cf
 
 # Load all the default values / constants from YAML file
 with open("cosmology-constants.yaml", "r") as constantslist:
@@ -42,7 +43,7 @@ class distanceData:
                                                       self.ΩR, self.w0, self.wa)
         self.comoving_volume = 1e-9*get_comoving_volume(self.redshift, self.H0, self.ΩM, self.ΩDE, 
                                                    self.ΩR, self.w0, self.wa)
-        self.proper_separation = get_proper_separation(180/3600/np.pi, self.redshift, self.H0, self.ΩM, 
+        self.proper_separation = get_proper_separation(cf.arcsec_to_rad(1), self.redshift, self.H0, self.ΩM, 
                                                   self.ΩDE, self.ΩR, self.w0, self.wa)
         self.lookback_time = get_lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
                                           self.ΩR, self.w0, self.wa)

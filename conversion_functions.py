@@ -1,4 +1,4 @@
-# %%
+import numpy as np
 
 def m_to_pc(value):
     
@@ -156,3 +156,34 @@ def ly_to_mpc(value):
     dist_mpc = value / conv_fac
     
     return dist_mpc
+   
+def rad_to_arcsec(value):
+
+    '''
+    Convert an angle from radiant to arcseconds.
+    
+    Args: angle in radiant
+    
+    Returns: angle in arcseconds
+    '''
+    
+    conv_fac = 180*3600/np.pi
+    angle_arcsec = value * conv_fac
+    
+    return angle_arcsec
+    
+def arcsec_to_rad(value):
+
+    '''
+    Convert an angle from arcseconds to rad.
+    
+    Args: angle in arcseconds
+    
+    Returns: angle in rad
+    '''
+    
+    conv_fac = 180*3600/np.pi
+    angle_rad = value / conv_fac
+    
+    return angle_rad
+    

@@ -1,13 +1,11 @@
 import numpy as np
-import yaml
 
 from scipy import integrate
 from dataclasses import dataclass, field
+from helpers import get_constants
 import conversion_functions as cf
 
-# Load all the default values / constants from YAML file
-with open("cosmology-constants.yaml", "r") as constantslist:
-    constants = yaml.load(constantslist, Loader=yaml.FullLoader)
+constants = get_constants()
 
 @dataclass
 class distanceData:

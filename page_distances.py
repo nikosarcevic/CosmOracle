@@ -11,18 +11,19 @@ import numpy as np
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph
+from helpers import plot_graph, get_constants, store_data
 
 def show_page():
 
     #Default values
-    H0=67.
-    ΩM=0.32
-    ΩR=0.
-    ΩDE=0.68
-    w0=-1.
-    wa=0.
-    speed_of_light=2.99792458e5
+    constants = get_constants()
+    speed_of_light=constants['speed-of-light']
+    ΩM=constants['matter-density']
+    ΩDE=constants['DE-density']
+    ΩR=constants['rad-density']
+    w0=constants['w0']
+    wa=constants['wa']
+    H0=constants['Hubble0']
 
     section_title = "Cosmological Distances"
 
@@ -38,47 +39,37 @@ def show_page():
 
     if z_value:
 
-        inputParms = bg.distanceData(float(z_value), float(H0_value), float(ΩM_value), float(ΩDE_value),
+        z_array = np.linspace(0, float(z_value), 300)
+
+        inputParms = bg.distanceData(z_array, float(H0_value), float(ΩM_value), float(ΩDE_value),
                                      float(ΩR_value), float(w0_value), float(wa_value))
 
         st.title('Results')
 
-        st.write('Comoving distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.comoving_distance, sig_digits)), 'Mpc')
-        st.write('Transverse comoving distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.transverse_comoving_distance, sig_digits)), 'Mpc')
-        st.write('Luminosity distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.luminosity_distance, sig_digits)), 'Mpc')
-        st.write('Angular diameter distance at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.angular_diameter_distance, sig_digits)), 'Mpc')
-        st.write('An object spanning an angle of 1 arcsec at redshift', str(inputParms.redshift), 'is therefore', 
-                 str(round(inputParms.proper_separation, sig_digits)), 'kpc across.')
-        st.write('Comoving volume at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.comoving_volume, sig_digits)), 'Gpc³')
-        st.write('Lookback time at redshift', str(inputParms.redshift), 'is:', 
-                 str(round(inputParms.lookback_time, sig_digits)), 'Gyrs')
+        st.write('Comoving distance at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.comoving_distance[-1], sig_digits)), 'Mpc')
+        st.write('Transverse comoving distance at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.transverse_comoving_distance[-1], sig_digits)), 'Mpc')
+        st.write('Luminosity distance at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.luminosity_distance[-1], sig_digits)), 'Mpc')
+        st.write('Angular diameter distance at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.angular_diameter_distance[-1], sig_digits)), 'Mpc')
+        st.write('An object spanning an angle of 1 arcsec at redshift', str(inputParms.redshift[-1]), 'is therefore',
+                 str(round(inputParms.proper_separation[-1], sig_digits)), 'kpc across.')
+        st.write('Comoving volume at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.comoving_volume[-1], sig_digits)), 'Gpc³')
+        st.write('Lookback time at redshift', str(inputParms.redshift[-1]), 'is:',
+                 str(round(inputParms.lookback_time[-1], sig_digits)), 'Gyrs')
         
-        z_array = np.linspace(0, inputParms.redshift, 300)
-
-        inputParmsPlot = bg.distanceData(z_array, inputParms.H0, inputParms.ΩM, inputParms.ΩDE, 
-                                         inputParms.ΩR, inputParms.w0, inputParms.wa)
-
-        rz_array = inputParmsPlot.comoving_distance
-        trz_array = inputParmsPlot.transverse_comoving_distance
-        DLz_array = inputParmsPlot.luminosity_distance
-        DAz_array = inputParmsPlot.angular_diameter_distance
-        VCz_array = inputParmsPlot.comoving_volume
-        tlz_array = inputParmsPlot.lookback_time
+        rz_array  = inputParms.comoving_distance
+        trz_array = inputParms.transverse_comoving_distance
+        DLz_array = inputParms.luminosity_distance
+        DAz_array = inputParms.angular_diameter_distance
+        VCz_array = inputParms.comoving_volume
+        tlz_array = inputParms.lookback_time
     
-        stacked_array = np.vstack((inputParmsPlot.redshift, 
-                                   inputParmsPlot.comoving_distance, 
-                                   inputParmsPlot.transverse_comoving_distance, 
-                                   inputParmsPlot.luminosity_distance, 
-                                   inputParmsPlot.angular_diameter_distance, 
-                                   inputParmsPlot.comoving_volume, 
-                                   inputParmsPlot.lookback_time)).T
-        np.savetxt("output.txt", stacked_array, header='z,DCz [Mpc],DMz [Mpc],DLz [Mpc],DAz [Mpc],VCz [Gpc^3],tlz [Gyr]', delimiter=',', comments='')
-    
+        store_data(inputParms)
+
         st.write(" ")
 
         plot_rz = st.checkbox('Plot Comoving Distance Dc(z)')
@@ -97,11 +88,11 @@ def show_page():
             
             st.write(" ")
         
-            plot = plot_graph(width, height, z_array, 
-                              (plot_rz, rz_array, "Comoving distance"), 
-                              (plot_trz, trz_array, "Transverse comoving distance"), 
-                              (plot_DLz, DLz_array, "Luminosity distance"), 
-                              (plot_DAz, DAz_array, "Angular diameter distance"), 
+            plot = plot_graph(width, height, z_array,
+                              (plot_rz, rz_array, "Comoving distance"),
+                              (plot_trz, trz_array, "Transverse comoving distance"),
+                              (plot_DLz, DLz_array, "Luminosity distance"),
+                              (plot_DAz, DAz_array, "Angular diameter distance"),
                               is_log = log_checkbox)
       
             st.pyplot(plot)
@@ -123,7 +114,7 @@ def show_page():
                 
                 st.write(" ")
                 plot = plot_graph(width, height, z_array,
-                                  (plot_VCz, inputParmsPlot.comoving_volume, "Comoving Volume"),
+                                  (plot_VCz, inputParms.comoving_volume, "Comoving Volume"),
                                   axis_label = "Comoving volume [Gpc³]", is_log = log_checkbox)
 
                 st.pyplot(plot)
@@ -139,7 +130,7 @@ def show_page():
                 st.write(" ")
 
                 plot = plot_graph(width, height, z_array, 
-                                  (plot_tlz, inputParmsPlot.lookback_time, "Lookback time"),
+                                  (plot_tlz, inputParms.lookback_time, "Lookback time"),
                                   axis_label = "Lookback time [Gyr]", is_log = log_checkbox)
 
                 st.pyplot(plot)

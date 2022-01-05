@@ -1,7 +1,31 @@
 import matplotlib.pyplot as plt
+import yaml
+import numpy as np
 
 from pathlib import Path
 from itertools import cycle
+
+def get_constants():
+    '''
+    Load all the default values / constants from YAML file
+    '''
+    with open("cosmology-constants.yaml", "r") as constantslist:
+        constants = yaml.load(constantslist, Loader=yaml.FullLoader)
+    return constants
+
+def store_data(params):
+    '''
+    Takes a set of data and stores it in a file
+    '''
+
+    stacked_array = np.vstack((params.redshift,
+                               params.comoving_distance,
+                               params.transverse_comoving_distance,
+                               params.luminosity_distance,
+                               params.angular_diameter_distance,
+                               params.comoving_volume,
+                               params.lookback_time)).T
+    np.savetxt("output.txt", stacked_array, header='z,DCz [Mpc],DMz [Mpc],DLz [Mpc],DAz [Mpc],VCz [Gpc^3],tlz [Gyr]', delimiter=',', comments='')
 
 def read_markdown(markdown_file):
         return Path(markdown_file).read_text()

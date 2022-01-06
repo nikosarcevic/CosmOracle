@@ -7,11 +7,10 @@ Created December 2021
 [Matthijs van der Wild](https://github.com/lonbar)
 """
 
-import numpy as np
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data
+from helpers import plot_graph, get_constants, store_data, get_redshifts
 
 def show_page():
 
@@ -39,7 +38,7 @@ def show_page():
 
     if z_value:
 
-        z_array = np.linspace(0, float(z_value), 300)
+        z_array = get_redshifts(float(z_value))
 
         inputParms = bg.distanceData(z_array, float(H0_value), float(ΩM_value), float(ΩDE_value),
                                      float(ΩR_value), float(w0_value), float(wa_value))

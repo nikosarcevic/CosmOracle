@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import yaml
 import numpy as np
 
+from scipy import integrate
 from pathlib import Path
 from itertools import cycle
 
@@ -85,3 +86,27 @@ def plot_graph(width, height,
     ax.set_ylabel(axis_label, size=15)
     
     return fig
+
+def integration_wrapper(integrand, upper_limit):
+    """
+    Integrates a given function of a single variable
+    """
+    result = integrate.quad(integrand, 0, upper_limit)[0]
+    return result
+
+def check_redshift_valid_array(redshift):
+    """
+    Ensures that the given redshift is either a float/integer ≥ 0,
+    or a numpy array of floats/integers each of which ≥ 0
+    """
+    if isinstance(redshift, float) or isinstance(redshift, int):
+        is_array = False
+        if redshift < 0:
+            raise ValueError("Enter a non-negative redshift.")
+    elif isinstance(redshift, np.ndarray):
+        is_array = True
+        if any(t < 0 for t in redshift):
+            raise ValueError("Enter a non-negative redshift.")
+    else:
+        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+    return is_array

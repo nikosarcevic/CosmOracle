@@ -1,8 +1,7 @@
 import numpy as np
 
-from scipy import integrate
 from dataclasses import dataclass, field
-from helpers import get_constants
+from helpers import get_constants, check_redshift_valid_array, integration_wrapper
 import conversion_functions as cf
 
 constants = get_constants()
@@ -83,16 +82,11 @@ def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-dens
     Method to compute the comoving distance
     """
     integrand = lambda x: 1/get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-        result, _ = integrate.quad(integrand, 0, z)
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    is_array = check_redshift_valid_array(z)
+    if is_array:
+        result = np.vectorize(lambda x: integration_wrapper(integrand, x))(z)
     else:
-        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+        result = integration_wrapper(integrand, z)
     c0 = constants['speed-of-light']
     return c0/H0*result
 
@@ -176,16 +170,11 @@ def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     Method to compute the lookback time in Gyrs
     """
     integrand = lambda x: 1/(get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-        result, _ = integrate.quad(integrand, 0, z)
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    is_array = check_redshift_valid_array(z)
+    if is_array:
+        result = np.vectorize(lambda x: integration_wrapper(integrand, x))(z)
     else:
-        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+        result = integration_wrapper(integrand, z)
     c0 = constants['speed-of-light']
     return result*hubble_time(H0)
     

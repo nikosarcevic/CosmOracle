@@ -5,7 +5,6 @@ def convert_unit(value, from_unit, to_unit):
     """
     Converts quantity value in from_unit to value' in to_unit
     """
-
     # constants
     speed_of_light = get_constants()["speed-of-light"] * 1e3
     #speed_of_light = 299792458
@@ -14,11 +13,14 @@ def convert_unit(value, from_unit, to_unit):
     rad_per_deg    = 180 / np.pi
     deg_per_arcsec = 3600.
 
+    # time conversions
+    year_per_sec = 3600 * 24 * 364.25 # note, this is a Julian year
+
     # length conversions
     meter_per_au     = 1 / 149597870700.
     au_per_parsec    = np.tan(1 / rad_per_deg / deg_per_arcsec)
     meter_per_parsec = meter_per_au * au_per_parsec
-    ly_per_meter     = speed_of_light * 3600 * 24 * 365.25
+    ly_per_meter     = speed_of_light * year_per_sec
     ly_per_parsec    = ly_per_meter * meter_per_au * au_per_parsec 
 
     conversion_table = {
@@ -36,6 +38,7 @@ def convert_unit(value, from_unit, to_unit):
         },
         "megaparsec" : {
             "meter"     : 1e6 / meter_per_parsec,
+            "kilometer" : 1e3 / meter_per_parsec,
             "lightyear" : 1e6 / ly_per_parsec
         },
         "lightyear" : {
@@ -48,6 +51,12 @@ def convert_unit(value, from_unit, to_unit):
         },
         "radian" : {
             "arcsec" : rad_per_deg * deg_per_arcsec
+        },
+        "second" : {
+            "year" : 1 / year_per_sec
+        },
+        "year" : {
+            "second" : year_per_sec
         }
     }
 

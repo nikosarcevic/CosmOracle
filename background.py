@@ -2,7 +2,7 @@ import numpy as np
 
 from dataclasses import dataclass, field
 from helpers import get_constants, check_redshift_valid_array, integration_wrapper
-import conversion_functions as cf
+from conversion_functions import convert_unit
 
 constants = get_constants()
 
@@ -40,7 +40,7 @@ class distanceData:
                                                       self.ΩR, self.w0, self.wa)
         self.comoving_volume = 1e-9*get_comoving_volume(self.redshift, self.H0, self.ΩM, self.ΩDE, 
                                                    self.ΩR, self.w0, self.wa)
-        self.proper_separation = get_proper_separation(cf.convert_unit(1, "arcsec", "radian"), 
+        self.proper_separation = get_proper_separation(convert_unit(1, "arcsec", "radian"), 
                                                        self.redshift, self.H0, self.ΩM, 
                                                        self.ΩDE, self.ΩR, self.w0, self.wa)
         self.lookback_time = get_lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
@@ -146,7 +146,7 @@ def hubble_time(H0=constants['Hubble0']):
     """
     Method to compute the Hubble time in Gyrs
     """
-    return (9.78e2)/H0
+    return 1e-9 * convert_unit(1, "megaparsec", "kilometer") * convert_unit(1, "second", "year") / H0
 
 def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                       ΩDE=constants['DE-density'], ΩR=constants['rad-density'],

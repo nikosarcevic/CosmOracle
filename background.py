@@ -52,13 +52,8 @@ def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'],
     """
     Method to compute the adimensional Hubble rate in the w0waCDm cosmology
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-    ΩK = 1-ΩM-ΩDE-ΩR
+    _ = check_redshift_valid_array(z)
+    ΩK = 1 - ΩM - ΩDE - ΩR
     return np.sqrt(ΩM*(1+z)**3+ΩR*(1+z)**4+ΩDE*(1+z)**(3*(1+w0+wa))*np.exp(-3*wa*z/(1+z))+ΩK*(1+z)**2)
 
 def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
@@ -67,12 +62,7 @@ def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     """
     Method to compute the Hubble rate in the w0waCDm cosmology
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
+    _ = check_redshift_valid_array(z)
     return H0*get_E_z(z, ΩM, ΩDE, ΩR, w0, wa)
 
 def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
@@ -96,12 +86,7 @@ def get_transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['
     """
     Compute the transverse comoving distance
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
+    _ = check_redshift_valid_array(z)
     D_c = get_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     ΩK = 1 - ΩM - ΩDE - ΩR
     c0 = constants['speed-of-light']

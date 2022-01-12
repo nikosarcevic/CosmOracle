@@ -18,4 +18,3 @@ class ComovingDistanceTest(unittest.TestCase):
     #    results = bg.comoving_distance(data)
     #    self.assertEqual(result, 3411.733,)
     #    with
-

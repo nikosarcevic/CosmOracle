@@ -108,5 +108,5 @@ def check_redshift_valid_array(redshift):
         if any(t < 0 for t in redshift):
             raise ValueError("Enter a non-negative redshift.")
     else:
-        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(redshift)}')
     return is_array

@@ -14,7 +14,7 @@ def convert_unit(value, from_unit, to_unit):
     deg_per_arcsec = 3600.
 
     # time conversions
-    year_per_sec = 3600 * 24 * 364.25 # note, this is a Julian year
+    year_per_sec = 3600 * 24 * 365.25 # note, this is a Julian year
 
     # length conversions
     meter_per_au     = 1 / 149597870700.

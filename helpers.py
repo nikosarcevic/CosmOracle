@@ -91,7 +91,8 @@ def integration_wrapper(integrand, upper_limit):
     """
     Integrates a given function of a single variable
     """
-    result = integrate.quad(integrand, 0, upper_limit)[0]
+    result = integrate.quad(integrand, 0, upper_limit,
+                            epsabs = 1e-12, epsrel = 1e-12, limit = 100)[0]
     return result
 
 def check_redshift_valid_array(redshift):

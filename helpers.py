@@ -7,11 +7,19 @@ from itertools import cycle
 
 def get_constants():
     '''
-    Load all the default values / constants from YAML file
+    Load the constants from YAML file
     '''
-    with open("cosmology-constants.yaml", "r") as constantslist:
-        constants = yaml.load(constantslist, Loader=yaml.FullLoader)
-    return constants
+    with open("cosmology-constants.yaml", "r") as f:
+        constants = yaml.load(f, Loader=yaml.FullLoader)
+    return constants['constants']
+
+def get_cosmologies():
+    '''
+    Load the default parameters from YAML file
+    '''
+    with open("cosmology-constants.yaml", "r") as f:
+        constants = yaml.load(f, Loader=yaml.FullLoader)
+    return constants['cosmologies']
 
 def get_redshifts(z_max):
     '''

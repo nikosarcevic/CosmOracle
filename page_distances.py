@@ -10,19 +10,20 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data, get_redshifts
+from helpers import plot_graph, get_constants, get_cosmologies, store_data, get_redshifts
 
 def show_page():
 
     #Default values
     constants = get_constants()
+    cosmologies = get_cosmologies()['Planck18']
     speed_of_light=constants['speed-of-light']
-    ΩM=constants['matter-density']
-    ΩDE=constants['DE-density']
-    ΩR=constants['rad-density']
-    w0=constants['w0']
-    wa=constants['wa']
-    H0=constants['Hubble0']
+    ΩM=cosmologies['matter-density']
+    ΩDE=cosmologies['DE-density']
+    ΩR=cosmologies['rad-density']
+    w0=cosmologies['w0']
+    wa=cosmologies['wa']
+    H0=cosmologies['Hubble0']
 
     section_title = "Cosmological Distances"
 

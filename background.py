@@ -2,10 +2,11 @@ import numpy as np
 
 from scipy import integrate
 from dataclasses import dataclass, field
-from helpers import get_constants
+from helpers import get_constants, get_cosmologies
 import conversion_functions as cf
 
 constants = get_constants()
+cosmologies = get_cosmologies()['Planck18']
 
 @dataclass
 class distanceData:
@@ -14,12 +15,12 @@ class distanceData:
     """
 
     redshift: float
-    H0: float = constants['Hubble0']
-    ΩM: float = constants['matter-density']
-    ΩDE: float = constants['DE-density']
-    ΩR: float = constants['rad-density']
-    w0: float = constants['w0']
-    wa: float = constants['wa']
+    H0: float = cosmologies['Hubble0']
+    ΩM: float = cosmologies['matter-density']
+    ΩDE: float = cosmologies['DE-density']
+    ΩR: float = cosmologies['rad-density']
+    w0: float = cosmologies['w0']
+    wa: float = cosmologies['wa']
 
     comoving_distance: float = field(init = False)
     transverse_comoving_distance: float = field(init = False)
@@ -48,8 +49,8 @@ class distanceData:
                                           self.ΩR, self.w0, self.wa)
 
 
-def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'], 
-        ΩR=constants['rad-density'], w0=constants['w0'], wa=constants['wa']):
+def get_E_z(z, ΩM=cosmologies['matter-density'], ΩDE=cosmologies['DE-density'], 
+        ΩR=cosmologies['rad-density'], w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Method to compute the adimensional Hubble rate in the w0waCDm cosmology
     """
@@ -62,9 +63,9 @@ def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'],
     ΩK = 1-ΩM-ΩDE-ΩR
     return np.sqrt(ΩM*(1+z)**3+ΩR*(1+z)**4+ΩDE*(1+z)**(3*(1+w0+wa))*np.exp(-3*wa*z/(1+z))+ΩK*(1+z)**2)
 
-def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
-            ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
-            w0=constants['w0'], wa=constants['wa']):
+def get_H_z(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'], 
+            ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'], 
+            w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Method to compute the Hubble rate in the w0waCDm cosmology
     """
@@ -76,9 +77,9 @@ def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
             raise ValueError("Enter a non-negative redshift.")
     return H0*get_E_z(z, ΩM, ΩDE, ΩR, w0, wa)
 
-def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
-                          ΩDE=constants['DE-density'], ΩR=constants['rad-density'], 
-                          w0=constants['w0'], wa=constants['wa']):
+def get_comoving_distance(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'], 
+                          ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'], 
+                          w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Method to compute the comoving distance
     """
@@ -96,9 +97,9 @@ def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-dens
     c0 = constants['speed-of-light']
     return c0/H0*result
 
-def get_transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                                     ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                                     w0=constants['w0'], wa=constants['wa']):
+def get_transverse_comoving_distance(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                                     ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                                     w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Compute the transverse comoving distance
     """
@@ -122,17 +123,17 @@ def get_transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['
     #    D_m = D_c * np.sin(x) / x
     return D_m.real
 
-def get_angular_diameter_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                                  ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                                  w0=constants['w0'], wa=constants['wa']):
+def get_angular_diameter_distance(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                                  ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                                  w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Compute the angular diameter distance
     """
     return get_transverse_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa) / (1 + z)
 
-def get_luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                            ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                            w0=constants['w0'], wa=constants['wa']):
+def get_luminosity_distance(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                            ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                            w0=cosmologies['w0'], wa=cosmologies['wa']):
     
     '''
     Compute the angular diameter distance d_l
@@ -142,9 +143,9 @@ def get_luminosity_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-de
     
     return d_l
 
-def get_comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                        ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                        w0=constants['w0'], wa=constants['wa']):
+def get_comoving_volume(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                        ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                        w0=cosmologies['w0'], wa=cosmologies['wa']):
 
     """
     Compute the comoving volume
@@ -163,15 +164,15 @@ def get_comoving_volume(z, H0=constants['Hubble0'], ΩM=constants['matter-densit
     else:
         return 4*np.pi/3*Dm**3
 
-def hubble_time(H0=constants['Hubble0']):
+def hubble_time(H0=cosmologies['Hubble0']):
     """
     Method to compute the Hubble time in Gyrs
     """
     return (9.78e2)/H0
 
-def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                      ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                      w0=constants['w0'], wa=constants['wa']):
+def get_lookback_time(z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                      ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                      w0=cosmologies['w0'], wa=cosmologies['wa']):
     """
     Method to compute the lookback time in Gyrs
     """
@@ -277,15 +278,15 @@ def calculate_distance_from_distance_modulus_for_given_M_and_m(M, m):
     
     return d
 
-def hubble_distance(H0=constants['Hubble0']):
+def hubble_distance(H0=cosmologies['Hubble0']):
     
     DH = c/H0
     
     return DH
 
-def get_proper_separation(θ, z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
-                          ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
-                          w0=constants['w0'], wa=constants['wa']):
+def get_proper_separation(θ, z, H0=cosmologies['Hubble0'], ΩM=cosmologies['matter-density'],
+                          ΩDE=cosmologies['DE-density'], ΩR=cosmologies['rad-density'],
+                          w0=cosmologies['w0'], wa=cosmologies['wa']):
     '''
     Computes the spatial separation of a distant object
 

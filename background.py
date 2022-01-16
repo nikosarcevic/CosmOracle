@@ -6,7 +6,7 @@ from helpers import get_constants, get_cosmologies
 import conversion_functions as cf
 
 constants = get_constants()
-cosmologies = get_cosmologies()['Planck18']
+cosmologies = get_cosmologies('Planck-2018')
 
 @dataclass
 class distanceData:

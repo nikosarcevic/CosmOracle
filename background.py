@@ -5,7 +5,7 @@ from helpers import get_constants, check_redshift_valid_array, integration_wrapp
 from conversion_functions import convert_unit
 
 constants = get_constants()
-cosmologies = get_cosmologies()['Planck18']
+cosmologies = get_cosmologies('Planck-2018')
 
 @dataclass
 class distanceData:

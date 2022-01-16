@@ -2,7 +2,7 @@
 constants:
     speed-of-light: 2.99792458e+5
 cosmologies:
-    Planck18:
+    Planck-2018:
         matter-density: 0.32
         DE-density    : 0.68
         rad-density   : 0.

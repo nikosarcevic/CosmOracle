@@ -28,3 +28,7 @@ CosmΩracle is registered on Zenodo. If you use this calculator while preparing 
 D. Hogg, *Distance Measures in Cosmology*, 2000 [astro-ph/9905116v4](https://arxiv.org/abs/astro-ph/9905116)
 
 E. V. Linder, *Exploring the Expansion History of the Universe*, 2002 [astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512)
+
+# Parameter sets
+
+* Planck-2018: [Planck 2018 results. VI. Cosmological parameters](https://arxiv.org/abs/1807.06209), _Planck_ Collaboration, 2018.

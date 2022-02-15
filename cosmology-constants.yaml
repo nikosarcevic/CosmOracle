@@ -9,6 +9,13 @@ cosmologies:
         w0            : -1.
         wa            : 0.
         Hubble0       : 67.
+    WMAP-2012:
+        matter-density: 0.28
+        DE-density    : 0.72
+        rad-density   : 0.
+        w0            : -1.
+        wa            : 0.
+        Hubble0       : 70
     737:
         matter-density: 0.30
         DE-density    : 0.70

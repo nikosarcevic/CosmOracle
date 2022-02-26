@@ -10,21 +10,23 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data, get_redshifts
+from helpers import plot_graph, get_parametersets, get_cosmologies, store_data, get_redshifts
 
 def show_page():
 
-    #Default values
-    constants = get_constants()
-    speed_of_light=constants['speed-of-light']
-    ΩM=constants['matter-density']
-    ΩDE=constants['DE-density']
-    ΩR=constants['rad-density']
-    w0=constants['w0']
-    wa=constants['wa']
-    H0=constants['Hubble0']
+    
 
     section_title = "Cosmological Distances"
+
+    # Set default values
+    parameterset = st.sidebar.selectbox("Parameter set", get_parametersets())
+    cosmologies = get_cosmologies(parameterset)
+    ΩM  = cosmologies['matter-density']
+    ΩDE = cosmologies['DE-density']
+    ΩR  = cosmologies['rad-density']
+    w0  = cosmologies['w0']
+    wa  = cosmologies['wa']
+    H0  = cosmologies['Hubble0']
 
     z_value = st.sidebar.text_input('Redshift')
     H0_value = st.sidebar.text_input('Hubble Constant [km/s/Mpc]', str(H0))

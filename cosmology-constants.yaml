@@ -1,7 +1,25 @@
-speed-of-light: 2.99792458e+5
-matter-density: 0.32
-DE-density    : 0.68
-rad-density   : 0.
-w0            : -1.
-wa            : 0.
-Hubble0       : 67.
+---
+constants:
+    speed-of-light: 2.99792458e+5
+cosmologies:
+    Planck-2018:
+        matter-density: 0.32
+        DE-density    : 0.68
+        rad-density   : 0.
+        w0            : -1.
+        wa            : 0.
+        Hubble0       : 67.
+    WMAP-2012:
+        matter-density: 0.28
+        DE-density    : 0.72
+        rad-density   : 0.
+        w0            : -1.
+        wa            : 0.
+        Hubble0       : 70.
+    737:
+        matter-density: 0.30
+        DE-density    : 0.70
+        rad-density   : 0.
+        w0            : -1.
+        wa            : 0.
+        Hubble0       : 70.

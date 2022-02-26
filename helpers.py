@@ -15,13 +15,27 @@ def get_constants():
         constants = yaml.load(f, Loader=yaml.FullLoader)
     return constants['constants']
 
-def get_cosmologies():
+def get_parametersets():
+    '''
+    Load a list of the parameter sets available in YAML file
+    '''
+    with open("cosmology-constants.yaml", "r") as f:
+        constants = yaml.load(f, Loader=yaml.FullLoader)
+        parameterset = constants['cosmologies'].keys()
+    return parameterset
+
+def get_cosmologies(dataset):
     '''
     Load the default parameters from YAML file
     '''
     with open("cosmology-constants.yaml", "r") as f:
         constants = yaml.load(f, Loader=yaml.FullLoader)
-    return constants['cosmologies']
+        if dataset not in constants['cosmologies'].keys():
+            error = f'''{dataset} is not a valid dataset. 
+                         Possible choices are:
+                         {constants['cosmologies'].keys()}.'''
+            ValueError(error)
+    return constants['cosmologies'][dataset]
 
 def get_redshifts(z_max):
     '''

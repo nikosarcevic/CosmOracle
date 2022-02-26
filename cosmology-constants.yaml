@@ -15,7 +15,7 @@ cosmologies:
         rad-density   : 0.
         w0            : -1.
         wa            : 0.
-        Hubble0       : 70
+        Hubble0       : 70.
     737:
         matter-density: 0.30
         DE-density    : 0.70

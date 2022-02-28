@@ -1,0 +1,7 @@
+__pycache__/
+
+.gitconfig
+
+.coverage
+.cache
+coverage.xml

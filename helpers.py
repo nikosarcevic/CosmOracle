@@ -14,6 +14,14 @@ def get_constants():
         constants = yaml.load(constantslist, Loader=yaml.FullLoader)
     return constants
 
+def get_redshifts(z_max):
+    '''
+    takes a redshift value and returns a redshift interval
+    '''
+    if not (isinstance(z_max, int) or isinstance(z_max, float)):
+            TypeError("Enter a valid redshift.")
+    return np.linspace(0, z_max, 300)
+
 def store_data(params):
     '''
     Takes a set of data and stores it in a file

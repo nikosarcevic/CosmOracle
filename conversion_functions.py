@@ -59,4 +59,11 @@ def convert_unit(value, from_unit, to_unit):
         }
     }
 
+    if not (isinstance(value, int) or isinstance(value, float)):
+        raise TypeError("Invalid numerical value.")
+    if not (isinstance(from_unit, str) and isinstance(to_unit, str)):
+        raise TypeError("Ensure that your units are valid strings.")
+    elif not all(unit in conversion_table.keys() for unit in [from_unit, to_unit]):
+        raise TypeError("Some units are unavailable.")
+
     return value * conversion_table[from_unit][to_unit]

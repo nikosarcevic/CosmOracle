@@ -31,6 +31,15 @@ def convert_unit(value, from_unit, to_unit):
             "gigaparsec" : meter_per_parsec / 1e9,
             "lightyear"  : 1 / ly_per_meter
         },
+        "kilometer" : {
+            "meter"      : 1e-3,
+            "parsec"     : meter_per_parsec / 1e3,
+            "kiloparsec" : meter_per_parsec / 1e6,
+            "megaparsec" : meter_per_parsec / 1e9,
+            "gigaparsec" : meter_per_parsec / 1e12,
+            "lightyear"  : 1e-3 / ly_per_meter
+        },
+
         "parsec" : {
             "meter"     : 1 / meter_per_parsec,
             "parsec"    : 1,

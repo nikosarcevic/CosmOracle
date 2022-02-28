@@ -24,6 +24,7 @@ def convert_unit(value, from_unit, to_unit):
 
     conversion_table = {
         "meter" : {
+            "meter"      : 1,
             "parsec"     : meter_per_parsec,
             "kiloparsec" : meter_per_parsec / 1e3,
             "megaparsec" : meter_per_parsec / 1e6,
@@ -32,6 +33,7 @@ def convert_unit(value, from_unit, to_unit):
         },
         "parsec" : {
             "meter"     : 1 / meter_per_parsec,
+            "parsec"    : 1,
             "kilometer" : 1e-3 / meter_per_parsec,
             "lightyear" : 1 / ly_per_parsec
         },
@@ -43,12 +45,15 @@ def convert_unit(value, from_unit, to_unit):
         "lightyear" : {
             "meter"      : ly_per_meter,
             "parsec"     : ly_per_parsec,
-            "megaparsec" : ly_per_parsec / 1e6
+            "megaparsec" : ly_per_parsec / 1e6,
+            "lightyear"  : 1
         },
         "arcsec" : {
+            "arcsec" : 1,
             "radian" : 1 / deg_per_arcsec / rad_per_deg
         },
         "radian" : {
+            "radian" : 1,
             "arcsec" : rad_per_deg * deg_per_arcsec
         },
         "second" : {

@@ -15,7 +15,7 @@ class unit_conversion_test(unittest.TestCase):
     def test_is_negative(self):
         data = -2.0
         result = cf.convert_unit(data, "meter", "lightyear")
-        self.assertEqual(result, -2/(9.4607e15))
+        self.assertAlmostEqual(result, -2.1140016680494e-16)
     
     def test_type_value(self):
         data = "A"

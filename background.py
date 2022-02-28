@@ -45,6 +45,9 @@ class distanceData:
                                                        self.ΩDE, self.ΩR, self.w0, self.wa)
         self.lookback_time = get_lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
                                           self.ΩR, self.w0, self.wa)
+        self.age = get_lookback_time(np.inf, self.H0, self.ΩM, self.ΩDE, 
+                                          self.ΩR, self.w0, self.wa)
+
 
 
 def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'], 

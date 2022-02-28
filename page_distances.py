@@ -45,6 +45,7 @@ def show_page():
 
         st.title('Results')
 
+        st.write('The age of the Universe is now', str(round(inputParms.age, sig_digits)), 'Gyrs')
         st.write('Comoving distance at redshift', str(inputParms.redshift[-1]), 'is:',
                  str(round(inputParms.comoving_distance[-1], sig_digits)), 'Mpc')
         st.write('Transverse comoving distance at redshift', str(inputParms.redshift[-1]), 'is:',
@@ -60,6 +61,7 @@ def show_page():
         st.write('Lookback time at redshift', str(inputParms.redshift[-1]), 'is:',
                  str(round(inputParms.lookback_time[-1], sig_digits)), 'Gyrs')
         
+       
         rz_array  = inputParms.comoving_distance
         trz_array = inputParms.transverse_comoving_distance
         DLz_array = inputParms.luminosity_distance

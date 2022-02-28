@@ -27,6 +27,7 @@ class distanceData:
     comoving_volume: float = field(init = False)
     lookback_time: float = field(init = False)
     proper_separation: float = field(init = False)
+    age: float = fied(init = False)
 
     def __post_init__(self):
         self.comoving_distance = get_comoving_distance(self.redshift, self.H0, self.ΩM, self.ΩDE, 

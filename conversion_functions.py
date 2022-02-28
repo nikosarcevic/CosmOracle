@@ -6,8 +6,7 @@ def convert_unit(value, from_unit, to_unit):
     Converts quantity value in from_unit to value' in to_unit
     """
     # constants
-    speed_of_light = get_constants()["speed-of-light"] * 1e3
-    #speed_of_light = 299792458
+    speed_of_light = get_constants()["speed-of-light"] * 1e3 # in km / s
 
     # angle conversions
     rad_per_deg    = 180 / np.pi

@@ -1,9 +1,8 @@
 import numpy as np
 
-from scipy import integrate
 from dataclasses import dataclass, field
-from helpers import get_constants
-import conversion_functions as cf
+from helpers import get_constants, check_redshift_valid_array, integration_wrapper
+from conversion_functions import convert_unit
 
 constants = get_constants()
 
@@ -41,7 +40,7 @@ class distanceData:
                                                       self.ΩR, self.w0, self.wa)
         self.comoving_volume = 1e-9*get_comoving_volume(self.redshift, self.H0, self.ΩM, self.ΩDE, 
                                                    self.ΩR, self.w0, self.wa)
-        self.proper_separation = get_proper_separation(cf.convert_unit(1, "arcsec", "radian"), 
+        self.proper_separation = get_proper_separation(convert_unit(1, "arcsec", "radian"), 
                                                        self.redshift, self.H0, self.ΩM, 
                                                        self.ΩDE, self.ΩR, self.w0, self.wa)
         self.lookback_time = get_lookback_time(self.redshift, self.H0, self.ΩM, self.ΩDE, 
@@ -53,13 +52,8 @@ def get_E_z(z, ΩM=constants['matter-density'], ΩDE=constants['DE-density'],
     """
     Method to compute the adimensional Hubble rate in the w0waCDm cosmology
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-    ΩK = 1-ΩM-ΩDE-ΩR
+    _ = check_redshift_valid_array(z)
+    ΩK = 1 - ΩM - ΩDE - ΩR
     return np.sqrt(ΩM*(1+z)**3+ΩR*(1+z)**4+ΩDE*(1+z)**(3*(1+w0+wa))*np.exp(-3*wa*z/(1+z))+ΩK*(1+z)**2)
 
 def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
@@ -68,12 +62,7 @@ def get_H_z(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
     """
     Method to compute the Hubble rate in the w0waCDm cosmology
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
+    _ = check_redshift_valid_array(z)
     return H0*get_E_z(z, ΩM, ΩDE, ΩR, w0, wa)
 
 def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-density'], 
@@ -83,16 +72,11 @@ def get_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['matter-dens
     Method to compute the comoving distance
     """
     integrand = lambda x: 1/get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-        result, _ = integrate.quad(integrand, 0, z)
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    is_array = check_redshift_valid_array(z)
+    if is_array:
+        result = np.vectorize(lambda x: integration_wrapper(integrand, x))(z)
     else:
-        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+        result = integration_wrapper(integrand, z)
     c0 = constants['speed-of-light']
     return c0/H0*result
 
@@ -102,12 +86,7 @@ def get_transverse_comoving_distance(z, H0=constants['Hubble0'], ΩM=constants['
     """
     Compute the transverse comoving distance
     """
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
+    _ = check_redshift_valid_array(z)
     D_c = get_comoving_distance(z, H0, ΩM, ΩDE, ΩR, w0, wa)
     ΩK = 1 - ΩM - ΩDE - ΩR
     c0 = constants['speed-of-light']
@@ -167,7 +146,7 @@ def hubble_time(H0=constants['Hubble0']):
     """
     Method to compute the Hubble time in Gyrs
     """
-    return (9.78e2)/H0
+    return 1e-9 * convert_unit(1, "megaparsec", "kilometer") * convert_unit(1, "second", "year") / H0
 
 def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'],
                       ΩDE=constants['DE-density'], ΩR=constants['rad-density'],
@@ -176,16 +155,11 @@ def get_lookback_time(z, H0=constants['Hubble0'], ΩM=constants['matter-density'
     Method to compute the lookback time in Gyrs
     """
     integrand = lambda x: 1/(get_E_z(x, ΩM, ΩDE, ΩR, w0, wa)*(1+x))
-    if isinstance(z, float) or isinstance(z, int):
-        if z < 0:
-            raise ValueError("Enter a non-negative redshift.")
-        result, _ = integrate.quad(integrand, 0, z)
-    elif isinstance(z, np.ndarray):
-        if any(t < 0 for t in z):
-            raise ValueError("Enter a non-negative redshift.")
-        result = np.vectorize(lambda x: integrate.quad(integrand, 0, x)[0])(z)
+    is_array = check_redshift_valid_array(z)
+    if is_array:
+        result = np.vectorize(lambda x: integration_wrapper(integrand, x))(z)
     else:
-        raise TypeError(f'Expected "Union[float, np.ndarray]", got {type(z)}')
+        result = integration_wrapper(integrand, z)
     c0 = constants['speed-of-light']
     return result*hubble_time(H0)
     

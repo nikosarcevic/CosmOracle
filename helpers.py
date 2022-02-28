@@ -89,7 +89,7 @@ def plot_graph(width, height,
 
 def integration_wrapper(integrand, upper_limit):
     """
-    Integrates a given function of a single variable
+    Integrates a given function of a single variable from 0 to upper_limit
     """
     result = integrate.quad(integrand, 0, upper_limit,
                             epsabs = 1e-12, epsrel = 1e-12, limit = 100)[0]

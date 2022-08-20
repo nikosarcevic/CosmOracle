@@ -9,10 +9,12 @@ Created December 2021
 """
 
 import streamlit as st
-from helpers import read_markdown, read_eq
+from helpers import read_markdown, read_eq, add_logo
 
 for i in range(8):
     st.sidebar.write("")
+
+add_logo()
 
 definitions = read_markdown("docs/markdown/definitions.md")
 st.markdown(definitions)

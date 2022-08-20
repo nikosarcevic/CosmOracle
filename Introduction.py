@@ -9,9 +9,10 @@ Created December 2021
 """
 
 import streamlit as st
-from helpers import read_markdown
+from helpers import read_markdown, add_logo
 
 st.set_page_config(page_title='CosmΩracle')
+add_logo()
 
 intro_markdown = read_markdown("docs/markdown/introduction.md")
 st.markdown(intro_markdown)

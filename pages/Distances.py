@@ -10,8 +10,9 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data, get_redshifts
+from helpers import plot_graph, get_constants, store_data, get_redshifts, add_logo
 
+add_logo()
 
 #Default values
 constants = get_constants()

@@ -10,7 +10,7 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data, get_redshifts, add_logo
+from helpers import plot_graph, get_constants, store_data, get_redshifts, add_logo, add_colophon
 
 add_logo()
 
@@ -143,3 +143,5 @@ if z_value:
 else:
     st.title(section_title)
     st.write('Enter the value of redshift and cosmological parameters in the sidebar and press enter.')
+
+add_colophon()

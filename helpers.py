@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import yaml
 import numpy as np
-import streamlit as st # Necessary for add_logo
+import streamlit as st
 
 from scipy import integrate
 from pathlib import Path
@@ -120,6 +120,10 @@ def check_redshift_valid_array(redshift):
     else:
         raise TypeError(f'Expected "Union[float, int, np.ndarray]", got {type(redshift)}')
     return is_array
+
+def add_colophon():
+    about = read_markdown("docs/markdown/about.md")
+    st.sidebar.markdown(about)
 
 def add_logo():
     """

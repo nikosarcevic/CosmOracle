@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import yaml
 import numpy as np
+import streamlit as st
 
 from scipy import integrate
 from pathlib import Path
@@ -119,3 +120,27 @@ def check_redshift_valid_array(redshift):
     else:
         raise TypeError(f'Expected "Union[float, int, np.ndarray]", got {type(redshift)}')
     return is_array
+
+def add_colophon():
+    about = read_markdown("docs/markdown/about.md")
+    st.sidebar.markdown(about)
+
+def add_logo():
+    """
+    Temporary workaround for placing the CosmΩracle logo, until Streamlit resolves their
+    markdown issue in multiple pages. See https://github.com/streamlit/streamlit/issues/4848
+    """
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(https://github.com/nikosarcevic/CosmOracle/blob/main/images/LogowName.png?raw=true);
+                background-repeat: no-repeat;
+                background-size: contain;
+                padding-top: 130px;
+                padding-bottom: 30px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )

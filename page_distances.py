@@ -11,22 +11,23 @@ import numpy as np
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, get_cosmologies, store_data
+from helpers import plot_graph, get_parametersets, get_cosmologies, store_data
 
 def show_page():
 
-    #Default values
-    constants = get_constants()
-    cosmologies = get_cosmologies()['Planck18']
-    speed_of_light=constants['speed-of-light']
-    ΩM=cosmologies['matter-density']
-    ΩDE=cosmologies['DE-density']
-    ΩR=cosmologies['rad-density']
-    w0=cosmologies['w0']
-    wa=cosmologies['wa']
-    H0=cosmologies['Hubble0']
+    
 
     section_title = "Cosmological Distances"
+
+    # Set default values
+    parameterset = st.sidebar.selectbox("Parameter set", get_parametersets())
+    cosmologies = get_cosmologies(parameterset)
+    ΩM  = cosmologies['matter-density']
+    ΩDE = cosmologies['DE-density']
+    ΩR  = cosmologies['rad-density']
+    w0  = cosmologies['w0']
+    wa  = cosmologies['wa']
+    H0  = cosmologies['Hubble0']
 
     z_value = st.sidebar.text_input('Redshift')
     H0_value = st.sidebar.text_input('Hubble Constant [km/s/Mpc]', str(H0))

@@ -10,14 +10,13 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, get_cosmologies, store_data, get_redshifts, add_logo, add_colophon
+from helpers import plot_graph, get_constants, get_cosmologies, get_parametersets, store_data, get_redshifts, add_logo, add_colophon
 
 add_logo()
 
 #Default values
-constants = get_constants()
-cosmologies = get_cosmologies()['Planck18']
-speed_of_light=constants['speed-of-light']
+parameterset = st.sidebar.selectbox("Parameter set", get_parametersets())
+cosmologies = get_cosmologies(parameterset)
 ΩM=cosmologies['matter-density']
 ΩDE=cosmologies['DE-density']
 ΩR=cosmologies['rad-density']

@@ -11,7 +11,11 @@ import numpy as np
 import streamlit as st
 import background as bg
 
+<<<<<<< HEAD
 from helpers import plot_graph, get_parametersets, get_cosmologies, store_data
+=======
+from helpers import plot_graph, get_parametersets, get_cosmologies, store_data, get_redshifts
+>>>>>>> f52f80ce39b7cf8c1fd2cf5848093a09d67cc2ca
 
 def show_page():
 

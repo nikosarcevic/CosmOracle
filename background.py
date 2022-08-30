@@ -14,12 +14,12 @@ class distanceData:
     """
 
     redshift: float
-    H0: float = cosmologies['Hubble0']
-    ΩM: float = cosmologies['matter-density']
-    ΩDE: float = cosmologies['DE-density']
-    ΩR: float = cosmologies['rad-density']
-    w0: float = cosmologies['w0']
-    wa: float = cosmologies['wa']
+    H0: float #= cosmologies['Hubble0']
+    ΩM: float #= cosmologies['matter-density']
+    ΩDE: float# = cosmologies['DE-density']
+    ΩR: float #= cosmologies['rad-density']
+    w0: float #= cosmologies['w0']
+    wa: float #= cosmologies['wa']
 
     comoving_distance: float = field(init = False)
     transverse_comoving_distance: float = field(init = False)

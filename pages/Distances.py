@@ -10,19 +10,19 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, store_data, get_redshifts, add_logo, add_colophon
+from helpers import plot_graph, get_constants, get_cosmologies, get_parametersets, store_data, get_redshifts, add_logo, add_colophon
 
 add_logo()
 
 #Default values
-constants = get_constants()
-speed_of_light=constants['speed-of-light']
-ΩM=constants['matter-density']
-ΩDE=constants['DE-density']
-ΩR=constants['rad-density']
-w0=constants['w0']
-wa=constants['wa']
-H0=constants['Hubble0']
+parameterset = st.sidebar.selectbox("Parameter set", get_parametersets())
+cosmologies = get_cosmologies(parameterset)
+ΩM=cosmologies['matter-density']
+ΩDE=cosmologies['DE-density']
+ΩR=cosmologies['rad-density']
+w0=cosmologies['w0']
+wa=cosmologies['wa']
+H0=cosmologies['Hubble0']
 
 section_title = "Cosmological Distances"
 

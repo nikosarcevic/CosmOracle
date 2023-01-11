@@ -61,7 +61,7 @@ If you use this calculator while preparing a paper, please use this DOI code to 
 
 # Acknowledgements
 
-The name *CosmΩracle* was conceived by [Knuth Morå](https://github.com/kdund) during the initial development.
+The name *CosmΩracle* was conceived by [Knut Morå](https://github.com/kdund) during the initial development.
 
 # References
 

@@ -59,6 +59,10 @@ CosmΩracle is registered on Zenodo.
 If you use this calculator while preparing a paper, please use this DOI code to cite our work:
 [![DOI](https://zenodo.org/badge/440653118.svg)](https://zenodo.org/badge/latestdoi/440653118)
 
+# Acknowledgements
+
+The name *CosmΩracle* was conceived by [Knuth Morå](https://github.com/kdund) during the initial development.
+
 # References
 
 - D. Hogg, Distance Measures in Cosmology, 2000 [astro-ph/9905116v4](https://arxiv.org/abs/astro-ph/9905116)

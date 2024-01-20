@@ -10,7 +10,7 @@ Created December 2021
 import streamlit as st
 from helpers import read_markdown
 
-import page_introduction as pi
+import Introduction as pi
 import page_distances as pd
 import page_documentation as doc
 

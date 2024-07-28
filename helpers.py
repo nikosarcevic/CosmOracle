@@ -1,3 +1,4 @@
+import io
 import matplotlib.pyplot as plt
 import yaml
 import numpy as np
@@ -64,6 +65,16 @@ def read_markdown(markdown_file):
 
 def read_eq(equation_file):
         return Path(equation_file).read_text()
+
+def save_plot_to_memory():
+    '''
+    store the plot in memory to prepare for download
+    '''
+    filename = "plot.pdf"
+    image = io.BytesIO()
+    plt.savefig(image, format="pdf")
+
+    return image, filename
 
 def plot_graph(width, height, 
                redshifts, *args, 

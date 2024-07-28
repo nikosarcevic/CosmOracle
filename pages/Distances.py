@@ -10,7 +10,7 @@ Created December 2021
 import streamlit as st
 import background as bg
 
-from helpers import plot_graph, get_constants, get_cosmologies, get_parametersets, store_data, get_redshifts, add_logo, add_colophon
+from helpers import plot_graph, save_plot_to_memory, get_constants, get_cosmologies, get_parametersets, store_data, get_redshifts, add_logo, add_colophon
 
 add_logo()
 
@@ -93,8 +93,17 @@ if z_value:
                           (plot_DLz, DLz_array, "Luminosity distance"),
                           (plot_DAz, DAz_array, "Angular diameter distance"),
                           is_log = log_checkbox)
-  
+
+        image, filename = save_plot_to_memory()
+
         st.pyplot(plot)
+        st.download_button(
+            label="Download plot",
+            data=image,
+            key=0,
+            file_name=filename,
+            mime="applcation/pdf"
+        )
     
     st.write(" ")
     
@@ -116,8 +125,16 @@ if z_value:
                               (plot_VCz, inputParms.comoving_volume, "Comoving Volume"),
                               axis_label = "Comoving volume [Gpc³]", is_log = log_checkbox)
 
+            image, filename = save_plot_to_memory()
+
             st.pyplot(plot)
-            
+            st.download_button(
+                label="Download plot",
+                data=image,
+                key=1,
+                file_name=filename,
+                mime="applcation/pdf"
+            )
         
         if plot_tlz:
             
@@ -132,8 +149,17 @@ if z_value:
                               (plot_tlz, inputParms.lookback_time, "Lookback time"),
                               axis_label = "Lookback time [Gyr]", is_log = log_checkbox)
 
+            image, filename = save_plot_to_memory()
+
             st.pyplot(plot)
-        
+            st.download_button(
+                label="Download plot",
+                data=image,
+                key=2,
+                file_name=filename,
+                mime="applcation/pdf"
+            )
+
     st.write(" ")
 
     st.header('Download calculated data as a text file')
